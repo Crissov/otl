@@ -1,0 +1,120 @@
+# Roman numerals
+# <http://typophile.com/node/67366>
+
+# Variant 1
+# Igor Freiberger 
+@NUMBERS=[@ONE @TWO @THREE @FOUR @FIVE @SIX @SEVEN @EIGHT @NINE @ZERO];
+
+feature ss09 {
+lookup THOUSANDS {
+	sub one' @NUMBERS @NUMBERS @NUMBERS by M.sc;
+	sub two' @NUMBERS @NUMBERS @NUMBERS by twothousand.rm;
+	sub three' @NUMBERS @NUMBERS @NUMBERS by threethousand.rm;
+	sub four' @NUMBERS @NUMBERS @NUMBERS by fourthousand.rm;
+	sub five' @NUMBERS @NUMBERS @NUMBERS by fivethousand.rm;
+	sub six' @NUMBERS @NUMBERS @NUMBERS by sixthousand.rm;
+	sub seven' @NUMBERS @NUMBERS @NUMBERS by seventhousand.rm;
+	sub eight' @NUMBERS @NUMBERS @NUMBERS by eightthousand.rm;
+	sub nine' @NUMBERS @NUMBERS @NUMBERS by ninethousand.rm;
+} THOUSANDS;
+lookup HUNDREDS {
+	ignore substitute @NUMBERS' @NUMBERS @NUMBERS @NUMBERS;
+	sub one' @NUMBERS @NUMBERS by C.sc;
+	sub two' @NUMBERS @NUMBERS by twohundred.rm;
+	sub three' @NUMBERS @NUMBERS by threehundred.rm;
+	sub four' @NUMBERS @NUMBERS by fourhundred.rm;
+	sub five' @NUMBERS @NUMBERS by D.sc;
+	sub six' @NUMBERS @NUMBERS by sixhundred.rm;
+	sub seven' @NUMBERS @NUMBERS by sevenhundred.rm;
+	sub eight' @NUMBERS @NUMBERS by eighthundred.rm;
+	sub nine' @NUMBERS @NUMBERS by ninehundred.rm;
+} HUNDREDS;
+lookup TENS {
+	ignore substitute @NUMBERS' @NUMBERS @NUMBERS;
+	sub one' @NUMBERS by X.sc;
+	sub two' @NUMBERS by twoten.rm;
+	sub three' @NUMBERS by threeten.rm;
+	sub four' @NUMBERS by fourten.rm;
+	sub five' @NUMBERS by L.sc;
+	sub six' @NUMBERS by sixten.rm;
+	sub seven' @NUMBERS by seventen.rm;
+	sub eight' @NUMBERS by eightten.rm;
+	sub nine' @NUMBERS by nineten.rm;
+} TENS;
+lookup UNITS {
+	ignore substitute @NUMBERS' @NUMBERS;
+	sub one' by I.sc;
+	sub two' by two.rm;
+	sub three' by three.rm;
+	sub four' by four.rm;
+	sub five' by V.sc;
+	sub six' by six.rm;
+	sub seven' by seven.rm;
+	sub eight' by eight.rm;
+	sub nine' by nine.rm;
+} UNITS;
+lookup ZEROS {
+	sub zero' by zero.rm;
+} ZEROS;
+} ss09;
+
+# Variant 2
+# Michael Hernan 
+
+feature ss09 { # Stylistic Set 9
+# 
+# Latin
+# Advanced Roman Numerals Converter
+# 1-9999
+
+lookup THOUSANDS {
+	sub one' @ordn1 @ordn1 @ordn1 by Onethousandroman;
+	sub two' @ordn1 @ordn1 @ordn1 by Twothousandroman;
+	sub three' @ordn1 @ordn1 @ordn1 by Threethousandroman;
+	sub four' @ordn1 @ordn1 @ordn1 by Fourthousandroman;
+	sub five' @ordn1 @ordn1 @ordn1 by Fivethousandroman;
+	sub six' @ordn1 @ordn1 @ordn1 by Sixthousandroman;
+	sub seven' @ordn1 @ordn1 @ordn1 by Seventhousandroman;
+	sub eight' @ordn1 @ordn1 @ordn1 by Eightthousandroman;
+	sub nine' @ordn1 @ordn1 @ordn1 by Ninethousandroman;
+} THOUSANDS;
+lookup HUNDREDS {
+	ignore sub @ordn1' @ordn1 @ordn1 @ordn1;
+	sub one' @ordn1 @ordn1 by Onehundredroman;
+	sub two' @ordn1 @ordn1 by Twohundredroman;
+	sub three' @ordn1 @ordn1 by Threehundredroman;
+	sub four' @ordn1 @ordn1 by Fourhundredroman;
+	sub five' @ordn1 @ordn1 by Fivehundredroman;
+	sub six' @ordn1 @ordn1 by Sixhundredroman;
+	sub seven' @ordn1 @ordn1 by Sevenhundredroman;
+	sub eight' @ordn1 @ordn1 by Eighthundredroman;
+	sub nine' @ordn1 @ordn1 by Ninehundredroman;
+} HUNDREDS;
+lookup TENS {
+	ignore sub @ordn1' @ordn1 @ordn1;
+	sub one' @ordn1 by Tenroman;
+	sub two' @ordn1 by Twentyroman;
+	sub three' @ordn1 by Thirtyroman;
+	sub four' @ordn1 by Fourtyroman;
+	sub five' @ordn1 by Fiftyroman;
+	sub six' @ordn1 by Sixtyroman;
+	sub seven' @ordn1 by Seventyroman;
+	sub eight' @ordn1 by Eightyroman;
+	sub nine' @ordn1 by Nintyroman;
+} TENS;
+lookup UNITS {
+	ignore sub @ordn1' @ordn1;
+	sub one' by Oneroman;
+	sub two' by Tworoman;
+	sub three' by Threeroman;
+	sub four' by Fourroman;
+	sub five' by Fiveroman;
+	sub six' by Sixroman;
+	sub seven' by Sevenroman;
+	sub eight' by Eightroman;
+	sub nine' by Nineroman;
+} UNITS;
+lookup ZEROS {
+	sub zero' by zeroroman;
+} ZEROS;
+} ss09;
