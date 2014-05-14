@@ -1,229 +1,439 @@
 languagesystem DFLT dflt;
-#languagesystem cyrl dflt;
 languagesystem latn dflt;
 
-feature rmnz {
+feature rmnz { # change to ss01 through ss20 when actually using
+
+featureNames {
+	name "‘rmnz’ Romanization: transliteration by ISO rules";# Feature description for MS Platform, script Unicode, language English
+}
 
 lookup CyrillicRomanization {
-	sub [Acyrillic uni0410 afii10017] by A;# А -> A (U+0410 -> U+0041)
-	sub [acyrillic uni0430 afii10065] by a;# а -> a (U+0430 -> U+0061)
-	sub [Abrevecyrillic uni04D0] by Abreve;#Ă;# Ӑ -> Ă (U+04D0 -> U+0102)
-	sub [abrevecyrillic uni04D1] by abreve;#ă;# ӑ -> ă (U+04D1 -> U+0103)
-	sub [Adieresiscyrillic uni04D2] by Adieresis;#Ä;# Ӓ -> Ä (U+04D2 -> U+00C4)
-	sub [adieresiscyrillic uni04D3] by adieresis;#ä;# ӓ -> ä (U+04D3 -> U+00E4)
-	sub [Becyrillic uni0411 afii10018] by B;# Б -> B (U+0411 -> U+0042)
-	sub [becyrillic uni0431 afii10066] by b;# б -> b (U+0431 -> U+0062)
-	sub [Vecyrillic uni0412 afii10019] by V;# В -> V (U+0412 -> U+0056)
-	sub [vecyrillic uni0432 afii10067] by v;# в -> v (U+0432 -> U+0076)
-	sub [Gecyrillic uni0413 afii10020] by G;# Г -> G (U+0413 -> U+0047)
-	sub [gecyrillic uni0433 afii10068] by g;# г -> g (U+0433 -> U+0067)
-	sub [Ghemiddlehookcyrillic uni0494] by Gbreve;#Ğ;# Ҕ -> Ğ (U+0494 -> U+011E)
-	sub [ghemiddlehookcyrillic uni0495] by gbreve;#ğ;# ҕ -> ğ (U+0495 -> U+011F)
-	sub [Ghestrokecyrillic uni0492] by Gdotaccent;#Ġ;# Ғ -> Ġ (U+0492 -> U+0120)
-	sub [ghestrokecyrillic uni0493] by gdotaccent;#ġ;# ғ -> ġ (U+0493 -> U+0121)
-	sub [Decyrillic uni0414 afii10021] by D;# Д -> D (U+0414 -> U+0044)
-	sub [decyrillic uni0434 afii10069] by d;# д -> d (U+0434 -> U+0064)
-	sub [Djecyrillic uni0402 afii10051] by Dcroat;#Dslash Đ;# Ђ -> Đ (U+0402 -> U+0110)
-	sub [djecyrillic uni0452 afii10099] by dcroat;#dslash đ;# ђ -> đ (U+0452 -> U+0111)
-	sub [Gjecyrillic uni0403 afii10052] by Gacute;#Ǵ;# Ѓ -> Ǵ (U+0403 -> U+01F4)
-	sub [gjecyrillic uni0453 afii10100] by gacute;#ǵ;# ѓ -> ǵ (U+0453 -> U+01F5)
-	sub [Iecyrillic uni0415 afii10022] by E;# Е -> E (U+0415 -> U+0045)
-	sub [iecyrillic uni0435 afii10070] by e;# е -> e (U+0435 -> U+0065)
-	sub [Iocyrillic uni0401 afii10023] by Edieresis;#Ë;# Ё -> Ë (U+0401 -> U+00CB)
-	sub [iocyrillic uni0451 afii10071] by edieresis;#ë;# ё -> ë (U+0451 -> U+00EB)
-	sub [Iebrevecyrillic uni04D6] by Ebreve;#Ĕ;# Ӗ -> Ĕ (U+04D6 -> U+0114)
-	sub [iebrevecyrillic uni04D7] by ebreve;#ĕ;# ӗ -> ĕ (U+04D7 -> U+0115)
-	sub [Ecyrillic uni0404 afii10053] by Ecircumflex;#Ê;# Є -> Ê (U+0404 -> U+00CA)
-	sub [ecyrillic uni0454 afii10101] by ecircumflex;#ê;# є -> ê (U+0454 -> U+00EA)
-	sub [Zhecyrillic uni0416 afii10024] by Zcaron;#Ž;# Ж -> Ž (U+0416 -> U+017D)
-	sub [zhecyrillic uni0436 afii10072] by zcaron;#ž;# ж -> ž (U+0436 -> U+017E)
-	sub [Zecyrillic uni0417 afii10025] by Z;# З -> Z (U+0417 -> U+005A)
-	sub [zecyrillic uni0437 afii10073] by z;# з -> z (U+0437 -> U+007A)
-	sub [Dzecyrillic uni0405 afii10054] by Zcircumflex;#Ẑ;# Ѕ -> Ẑ (U+0405 -> U+1E90)
-	sub [dzecyrillic uni0455 afii10102] by zcircumflex;#ẑ;# ѕ -> ẑ (U+0455 -> U+1E91)
-	sub [Dzeabkhasiancyrillic uni04E0] by Zacute;#Ź;# Ӡ -> Ź (U+04E0 -> U+0179)
-	sub [dzeabkhasiancyrillic uni04E1] by zacute;#ź;# ӡ -> ź (U+04E1 -> U+017A)
-	sub [Iicyrillic uni0418 afii10026] by I;# И -> I (U+0418 -> U+0049)
-	sub [iicyrillic uni0438 afii10074] by i;# и -> i (U+0438 -> U+0069)
-	sub [Idieresiscyrillic uni04E4] by Icircumflex;#Î;# Ӥ -> Î (U+04E4 -> U+00CE)
-	sub [idieresiscyrillic uni04E5] by icircumflex;#î;# ӥ -> î (U+04E5 -> U+00EE)
-	sub [Icyrillic uni0406 afii10055] by Igrave;#Ì;# І -> Ì (U+0406 -> U+00CC)
-	sub [icyrillic uni0456 afii10103] by igrave;#ì;# і -> ì (U+0456 -> U+00EC)
-	sub [Yicyrillic uni0407 afii10056] by Idieresis;#Ï;# Ї -> Ï (U+0407 -> U+00CF)
-	sub [yicyrillic uni0457 afii10104] by idieresis;#ï;# ї -> ï (U+0457 -> U+00EF)
-	sub [Iishortcyrillic uni0419 afii10027] by J;# Й -> J (U+0419 -> U+004A)
-	sub [iishortcyrillic uni0439 afii10075] by j;# й -> j (U+0439 -> U+006A)
-	sub [Kacyrillic uni041A afii10028] by K;# К -> K (U+041A -> U+004B)
-	sub [kacyrillic uni043A afii10076] by k;# к -> k (U+043A -> U+006B)
-	sub [Kadescendercyrillic uni049A] by Kcedilla;#Kcommaaccent Ķ;# Қ -> Ķ (U+049A -> U+0136)
-	sub [kadescendercyrillic uni049B] by kcedilla;#kcommaaccent ķ;# қ -> ķ (U+049B -> U+0137)
-	sub [Elcyrillic uni041B afii10029] by L;# Л -> L (U+041B -> U+004C)
-	sub [elcyrillic uni043B afii10077] by l;# л -> l (U+043B -> U+006C)
-	sub [Emcyrillic uni041C afii10030] by M;# М -> M (U+041C -> U+004D)
-	sub [emcyrillic uni043C afii10078] by m;# м -> m (U+043C -> U+006D)
-	sub [Encyrillic uni041D afii10031] by N;# Н -> N (U+041D -> U+004E)
-	sub [encyrillic uni043D afii10079] by n;# н -> n (U+043D -> U+006E)
-	sub [Enghecyrillic uni04A4] by Ndotaccent;#Ṅ;# Ҥ -> Ṅ (U+04A4 -> U+1E44)
-	sub [enghecyrillic uni04A5] by ndotaccent;#ṅ;# ҥ -> ṅ (U+04A5 -> U+1E45)
-	sub [Endescendercyrillic uni04A2] by Ndotbelow;#Ṇ;# Ң -> Ṇ (U+04A2 -> U+1E46)
-	sub [endescendercyrillic uni04A3] by ndotbelow;#ṇ;# ң -> ṇ (U+04A3 -> U+1E47)
-	sub [Ocyrillic uni041E afii10032] by O;# О -> O (U+041E -> U+004F)
-	sub [ocyrillic uni043E afii10080] by o;# о -> o (U+043E -> U+006F)
-	sub [Odieresiscyrillic uni04E6] by Odieresis;#Ö;# Ӧ -> Ö (U+04E6 -> U+00D6)
-	sub [odieresiscyrillic uni04E7] by odieresis;#ö;# ӧ -> ö (U+04E7 -> U+00F6)
-	sub [Obarredcyrillic uni04E8] by Ocircumflex;#Ô;# Ө -> Ô (U+04E8 -> U+00D4)
-	sub [obarredcyrillic uni04E9] by ocircumflex;#ô;# ө -> ô (U+04E9 -> U+00F4)
-	sub [Pecyrillic uni041F afii10033] by P;# П -> P (U+041F -> U+0050)
-	sub [pecyrillic uni043F afii10081] by p;# п -> p (U+043F -> U+0070)
-	sub [Pemiddlehookcyrillic uni04A6] by Pacute;#Ṕ;# Ҧ -> Ṕ (U+04A6 -> U+1E54)
-	sub [pemiddlehookcyrillic uni04A7] by pacute;#ṕ;# ҧ -> ṕ (U+04A7 -> U+1E55)
-	sub [Ercyrillic uni0420 afii10034] by R;# Р -> R (U+0420 -> U+0052)
-	sub [ercyrillic uni0440 afii10082] by r;# р -> r (U+0440 -> U+0072)
-	sub [Escyrillic uni0421 afii10035] by S;# С -> S (U+0421 -> U+0053)
-	sub [escyrillic uni0441 afii10083] by s;# с -> s (U+0441 -> U+0073)
-	sub [Esdescendercyrillic uni04AA] by Ccedilla;#Ç;# Ҫ -> Ç (U+04AA -> U+00C7)
-	sub [esdescendercyrillic uni04AB] by ccedilla;#ç;# ҫ -> ç (U+04AB -> U+00E7)
-	sub [Tecyrillic uni0422 afii10036] by T;# Т -> T (U+0422 -> U+0054)
-	sub [tecyrillic uni0442 afii10084] by t;# т -> t (U+0442 -> U+0074)
-	sub [Tedescendercyrillic uni04AC] by Tcedilla;#Tcommaaccent Ţ;# Ҭ -> Ţ (U+04AC -> U+0162)
-	sub [tedescendercyrillic uni04AD] by tcedilla;#tcommaaccent ţ;# ҭ -> ţ (U+04AD -> U+0163)
-	sub [Tshecyrillic uni040B afii10060] by Cacute;#Ć;# Ћ -> Ć (U+040B -> U+0106)
-	sub [tshecyrillic uni045B afii10108] by cacute;#ć;# ћ -> ć (U+045B -> U+0107)
-	sub [Kjecyrillic uni040C afii10061] by Kacute;#Ḱ;# Ќ -> Ḱ (U+040C -> U+1E30)
-	sub [kjecyrillic uni045C afii10109] by kacute;#ḱ;# ќ -> ḱ (U+045C -> U+1E31)
-	sub [Ucyrillic uni0423 afii10037] by U;# У -> U (U+0423 -> U+0055)
-	sub [ucyrillic uni0443 afii10085] by u;# у -> u (U+0443 -> U+0075)
-	sub [Ushortcyrillic uni040E afii10062] by Ubreve;#Ŭ;# Ў -> Ŭ (U+040E -> U+016C)
-	sub [ushortcyrillic uni045E afii10110] by ubreve;#ŭ;# ў -> ŭ (U+045E -> U+016D)
-	sub [Udieresiscyrillic uni04F0] by Udieresis;#Ü;# Ӱ -> Ü (U+04F0 -> U+00DC)
-	sub [udieresiscyrillic uni04F1] by udieresis;#ü;# ӱ -> ü (U+04F1 -> U+00FC)
-	sub [Uhungarumlautcyrillic uni04F2] by Uhungarumlaut;#Udblacute Ű;# Ӳ -> Ű (U+04F2 -> U+0170)
-	sub [uhungarumlautcyrillic uni04F3] by uhungarumlaut;#udblacute ű;# ӳ -> ű (U+04F3 -> U+0171)
-	sub [Ustraightcyrillic uni04AE] by Ugrave;#Ù;# Ү -> Ù (U+04AE -> U+00D9)
-	sub [ustraightcyrillic uni04AF] by ugrave;#ù;# ү -> ù (U+04AF -> U+00F9)
-	sub [Efcyrillic uni0424 afii10038] by F;# Ф -> F (U+0424 -> U+0046)
-	sub [efcyrillic uni0444 afii10086] by f;# ф -> f (U+0444 -> U+0066)
-	sub [Khacyrillic uni0425 afii10039] by H;# Х -> H (U+0425 -> U+0048)
-	sub [khacyrillic uni0445 afii10087] by h;# х -> h (U+0445 -> U+0068)
-	sub [Hadescendercyrillic uni04B2] by Hcedilla;#Ḩ;# Ҳ -> Ḩ (U+04B2 -> U+1E28)
-	sub [hadescendercyrillic uni04B3] by hcedilla;#ḩ;# ҳ -> ḩ (U+04B3 -> U+1E29)
-	sub [Shhacyrillic uni04BA] by Hdotbelow;#Ḥ;# Һ -> Ḥ (U+04BA -> U+1E24)
-	sub [shhacyrillic uni04BB] by hdotbelow;#ḥ;# һ -> ḥ (U+04BB -> U+1E25)
-	sub [Tsecyrillic uni0426 afii10040] by C;# Ц -> C (U+0426 -> U+0043)
-	sub [tsecyrillic uni0446 afii10088] by c;# ц -> c (U+0446 -> U+0063)
-	sub [Checyrillic uni0427 afii10041] by Ccaron;#Č;# Ч -> Č (U+0427 -> U+010C)
-	sub [checyrillic uni0447 afii10089] by ccaron;#č;# ч -> č (U+0447 -> U+010D)
-	sub [Chekhakassiancyrillic uni04CB] by Ccedilla;#Ç;# Ҷ -> Ç (U+04CB -> U+00C7) # same as uni04AA?
-	sub [chekhakassiancyrillic uni04CC] by ccedilla;#ç;# ҷ -> ç (U+04CC -> U+00E7) # same as uni04AB?
-	sub [Shacyrillic uni0428 afii10042] by Scaron;#Š;# Ш -> Š (U+0428 -> U+0160)
-	sub [shacyrillic uni0448 afii10090] by scaron;#š;# ш -> š (U+0448 -> U+0161)
-	sub [Shchacyrillic uni0429 afii10043] by Scircumflex;#Ŝ;# Щ -> Ŝ (U+0429 -> U+015C)
-	sub [shchacyrillic uni0449 afii10091] by scircumflex;#ŝ;# щ -> ŝ (U+0449 -> U+015D)
-	sub [Yericyrillic uni042B afii10045] by Y;# Ы -> Y (U+042B -> U+0059)
-	sub [yericyrillic uni044B afii10093] by y;# ы -> y (U+044B -> U+0079)
-	sub [Yerudieresiscyrillic uni04F8] by Ydieresis;#Ÿ;# Ӹ -> Ÿ (U+04F8 -> U+0178)
-	sub [yerudieresiscyrillic uni04F9] by ydieresis;#ÿ;# ӹ -> ÿ (U+04F9 -> U+00FF)
-	sub [Ereversedcyrillic uni042D afii10047] by Egrave;#È;# Э -> È (U+042D -> U+00C8)
-	sub [ereversedcyrillic uni044D afii10095] by egrave;#è;# э -> è (U+044D -> U+00E8)
-	sub [IUcyrillic uni042E afii10048] by Ucircumflex;#Û;# Ю -> Û (U+042E -> U+00DB)
-	sub [iucyrillic uni044E afii10096] by ucircumflex;#û;# ю -> û (U+044E -> U+00FB)
-	sub [IAcyrillic uni042F afii10049] by Acircumflex;#Â;# Я -> Â (U+042F -> U+00C2)
-	sub [iacyrillic uni044F afii10097] by acircumflex;#â;# я -> â (U+044F -> U+00E2)
-	sub [uni048C] by Ecaron;#Ě;# Ѣ -> Ě (U+048C -> U+011A)
-	sub [uni048D] by ecaron;#ě;# ѣ -> ě (U+048D -> U+011B)
-	sub [Yusbigcyrillic uni046A] by Acaron;#Ǎ;# Ѫ -> Ǎ (U+046A -> U+01CD)
-	sub [yusbigcyrillic uni046B] by acaron;#ǎ;# ѫ -> ǎ (U+046B -> U+01CE)
-	sub [Izhitsacyrillic uni0474 afii10148] by Ygrave;#Ỳ;# Ѵ -> Ỳ (U+0474 -> U+1EF2)
-	sub [izhitsacyrillic uni0475 afii10196] by ygrave;#ỳ;# ѵ -> ỳ (U+0475 -> U+1EF3)
-	sub [Haabkhasiancyrillic uni04A8] by Ograve;#Ò;# Ҩ -> Ò (U+04A8 -> U+00D2)
-	sub [haabkhasiancyrillic uni04A9] by ograve;#ò;# ҩ -> ò (U+04A9 -> U+00F2)
-	sub [Softsigncyrillic uni042C afii10046 softsigncyrillic uni044C afii10094] by uni02B9;# [Ь ь] -> ʹ	primemod
-	sub [Hardsigncyrillic uni042A afii10044 hardsigncyrillic uni044A afii10092] by uni02BA;# [Ъ ъ] -> ʺ	dblprimemod
-	sub [primereversed uni2035] by uni2019;# ’ -> ‵	quoteright; uni02BC: apostrophemod, afii57929
-	sub [palochkacyrillic uni04C0 uni04CF] by uni2021;# Ӏ -> ‡	daggerdbl
+#script cyrl;
+# ISO 9:1995
+	sub [uni0410 afii10017 Acyrillic] by A;# А -> A (uni0041)
+	sub [uni0430 afii10065 acyrillic] by a;# а -> a (uni0061)
+	sub [uni04D0           Abrevecyrillic] by Abreve;#Ă;# Ӑ -> Ă (uni0102)
+	sub [uni04D1           abrevecyrillic] by abreve;#ă;# ӑ -> ă (uni0103)
+	sub [uni04D2           Adieresiscyrillic] by Adieresis;#Ä;# Ӓ -> Ä (uni00C4)
+	sub [uni04D3           adieresiscyrillic] by adieresis;#ä;# ӓ -> ä (uni00E4)
+	sub [uni0411 afii10018 Becyrillic] by B;# Б -> B (uni0042)
+	sub [uni0431 afii10066 becyrillic] by b;# б -> b (uni0062)
+	sub [uni0412 afii10019 Vecyrillic] by V;# В -> V (uni0056)
+	sub [uni0432 afii10067 vecyrillic] by v;# в -> v (uni0076)
+	sub [uni0413 afii10020 Gecyrillic] by G;# Г -> G (uni0047)
+	sub [uni0433 afii10068 gecyrillic] by g;# г -> g (uni0067)
+	sub [uni0494           Ghemiddlehookcyrillic] by Gbreve;#Ğ;# Ҕ -> Ğ (uni011E)
+	sub [uni0495           ghemiddlehookcyrillic] by gbreve;#ğ;# ҕ -> ğ (uni011F)
+	sub [uni0492           Ghestrokecyrillic] by Gdotaccent;#Ġ;# Ғ -> Ġ (uni0120)
+	sub [uni0493           ghestrokecyrillic] by gdotaccent;#ġ;# ғ -> ġ (uni0121)
+	sub [uni0414 afii10021 Decyrillic] by D;# Д -> D (uni0044)
+	sub [uni0434 afii10069 decyrillic] by d;# д -> d (uni0064)
+	sub [uni0402 afii10051 Djecyrillic] by Dcroat;#Dslash Đ;# Ђ -> Đ (uni0110)
+	sub [uni0452 afii10099 djecyrillic] by dcroat;#dslash đ;# ђ -> đ (uni0111)
+	sub [uni0403 afii10052 Gjecyrillic] by Gacute;#Ǵ;# Ѓ -> Ǵ (uni01F4)
+	sub [uni0453 afii10100 gjecyrillic] by gacute;#ǵ;# ѓ -> ǵ (uni01F5)
+	sub [uni0415 afii10022 Iecyrillic] by E;# Е -> E (uni0045)
+	sub [uni0435 afii10070 iecyrillic] by e;# е -> e (uni0065)
+	sub [uni0401 afii10023 Iocyrillic] by Edieresis;#Ë;# Ё -> Ë (uni00CB)
+	sub [uni0451 afii10071 iocyrillic] by edieresis;#ë;# ё -> ë (uni00EB)
+	sub [uni04D6           Iebrevecyrillic] by Ebreve;#Ĕ;# Ӗ -> Ĕ (uni0114)
+	sub [uni04D7           iebrevecyrillic] by ebreve;#ĕ;# ӗ -> ĕ (uni0115)
+	sub [uni0404 afii10053 Ecyrillic] by Ecircumflex;#Ê;# Є -> Ê (uni00CA)
+	sub [uni0454 afii10101 ecyrillic] by ecircumflex;#ê;# є -> ê (uni00EA)
+	sub [uni0416 afii10024 Zhecyrillic] by Zcaron;#Ž;# Ж -> Ž (uni017D)
+	sub [uni0436 afii10072 zhecyrillic] by zcaron;#ž;# ж -> ž (uni017E)
+	sub [uni0417 afii10025 Zecyrillic] by Z;# З -> Z (uni005A)
+	sub [uni0437 afii10073 zecyrillic] by z;# з -> z (uni007A)
+	sub [uni0405 afii10054 Dzecyrillic] by Zcircumflex;#Ẑ;# Ѕ -> Ẑ (uni1E90)
+	sub [uni0455 afii10102 dzecyrillic] by zcircumflex;#ẑ;# ѕ -> ẑ (uni1E91)
+	sub [uni04E0           Dzeabkhasiancyrillic] by Zacute;#Ź;# Ӡ -> Ź (uni0179)
+	sub [uni04E1           dzeabkhasiancyrillic] by zacute;#ź;# ӡ -> ź (uni017A)
+	sub [uni0418 afii10026 Iicyrillic] by I;# И -> I (uni0049)
+	sub [uni0438 afii10074 iicyrillic] by i;# и -> i (uni0069)
+	sub [uni04E4           Idieresiscyrillic] by Icircumflex;#Î;# Ӥ -> Î (uni00CE)
+	sub [uni04E5           idieresiscyrillic] by icircumflex;#î;# ӥ -> î (uni00EE)
+	sub [uni0406 afii10055 Icyrillic] by Igrave;#Ì;# І -> Ì (uni00CC)
+	sub [uni0456 afii10103 icyrillic] by igrave;#ì;# і -> ì (uni00EC)
+	sub [uni0407 afii10056 Yicyrillic] by Idieresis;#Ï;# Ї -> Ï (uni00CF)
+	sub [uni0457 afii10104 yicyrillic] by idieresis;#ï;# ї -> ï (uni00EF)
+	sub [uni0419 afii10027 Iishortcyrillic] by J;# Й -> J (uni004A)
+	sub [uni0439 afii10075 iishortcyrillic] by j;# й -> j (uni006A)
+	sub [uni041A afii10028 Kacyrillic] by K;# К -> K (uni004B)
+	sub [uni043A afii10076 kacyrillic] by k;# к -> k (uni006B)
+	sub [uni049A           Kadescendercyrillic] by Kcedilla;#Kcommaaccent Ķ;# Қ -> Ķ (uni0136)
+	sub [uni049B           kadescendercyrillic] by kcedilla;#kcommaaccent ķ;# қ -> ķ (uni0137)
+	sub [uni041B afii10029 Elcyrillic] by L;# Л -> L (uni004C)
+	sub [uni043B afii10077 elcyrillic] by l;# л -> l (uni006C)
+	sub [uni041C afii10030 Emcyrillic] by M;# М -> M (uni004D)
+	sub [uni043C afii10078 emcyrillic] by m;# м -> m (uni006D)
+	sub [uni041D afii10031 Encyrillic] by N;# Н -> N (uni004E)
+	sub [uni043D afii10079 encyrillic] by n;# н -> n (uni006E)
+	sub [uni04A4           Enghecyrillic] by Ndotaccent;#Ṅ;# Ҥ -> Ṅ (uni1E44)
+	sub [uni04A5           enghecyrillic] by ndotaccent;#ṅ;# ҥ -> ṅ (uni1E45)
+	sub [uni04A2           Endescendercyrillic] by Ndotbelow;#Ṇ;# Ң -> Ṇ (uni1E46)
+	sub [uni04A3           endescendercyrillic] by ndotbelow;#ṇ;# ң -> ṇ (uni1E47)
+	sub [uni041E afii10032 Ocyrillic] by O;# О -> O (uni004F)
+	sub [uni043E afii10080 ocyrillic] by o;# о -> o (uni006F)
+	sub [uni04E6           Odieresiscyrillic] by Odieresis;#Ö;# Ӧ -> Ö (uni00D6)
+	sub [uni04E7           odieresiscyrillic] by odieresis;#ö;# ӧ -> ö (uni00F6)
+	sub [uni04E8           Obarredcyrillic] by Ocircumflex;#Ô;# Ө -> Ô (uni00D4)
+	sub [uni04E9           obarredcyrillic] by ocircumflex;#ô;# ө -> ô (uni00F4)
+	sub [uni041F afii10033 Pecyrillic] by P;# П -> P (uni0050)
+	sub [uni043F afii10081 pecyrillic] by p;# п -> p (uni0070)
+	sub [uni04A6           Pemiddlehookcyrillic] by Pacute;#Ṕ;# Ҧ -> Ṕ (uni1E54)
+	sub [uni04A7           pemiddlehookcyrillic] by pacute;#ṕ;# ҧ -> ṕ (uni1E55)
+	sub [uni0420 afii10034 Ercyrillic] by R;# Р -> R (uni0052)
+	sub [uni0440 afii10082 ercyrillic] by r;# р -> r (uni0072)
+	sub [uni0421 afii10035 Escyrillic] by S;# С -> S (uni0053)
+	sub [uni0441 afii10083 escyrillic] by s;# с -> s (uni0073)
+	sub [uni04AA           Esdescendercyrillic] by Ccedilla;#Ç;# Ҫ -> Ç (uni00C7)
+	sub [uni04AB           esdescendercyrillic] by ccedilla;#ç;# ҫ -> ç (uni00E7)
+	sub [uni0422 afii10036 Tecyrillic] by T;# Т -> T (uni0054)
+	sub [uni0442 afii10084 tecyrillic] by t;# т -> t (uni0074)
+	sub [uni04AC           Tedescendercyrillic] by Tcedilla;#Tcommaaccent Ţ;# Ҭ -> Ţ (uni0162)
+	sub [uni04AD           tedescendercyrillic] by tcedilla;#tcommaaccent ţ;# ҭ -> ţ (uni0163)
+	sub [uni040B afii10060 Tshecyrillic] by Cacute;#Ć;# Ћ -> Ć (uni0106)
+	sub [uni045B afii10108 tshecyrillic] by cacute;#ć;# ћ -> ć (uni0107)
+	sub [uni040C afii10061 Kjecyrillic] by Kacute;#Ḱ;# Ќ -> Ḱ (uni1E30)
+	sub [uni045C afii10109 kjecyrillic] by kacute;#ḱ;# ќ -> ḱ (uni1E31)
+	sub [uni0423 afii10037 Ucyrillic] by U;# У -> U (uni0055)
+	sub [uni0443 afii10085 ucyrillic] by u;# у -> u (uni0075)
+	sub [uni040E afii10062 Ushortcyrillic] by Ubreve;#Ŭ;# Ў -> Ŭ (uni016C)
+	sub [uni045E afii10110 ushortcyrillic] by ubreve;#ŭ;# ў -> ŭ (uni016D)
+	sub [uni04F0           Udieresiscyrillic] by Udieresis;#Ü;# Ӱ -> Ü (uni00DC)
+	sub [uni04F1           udieresiscyrillic] by udieresis;#ü;# ӱ -> ü (uni00FC)
+	sub [uni04F2           Uhungarumlautcyrillic] by Uhungarumlaut;#Udblacute Ű;# Ӳ -> Ű (uni0170)
+	sub [uni04F3           uhungarumlautcyrillic] by uhungarumlaut;#udblacute ű;# ӳ -> ű (uni0171)
+	sub [uni04AE           Ustraightcyrillic] by Ugrave;#Ù;# Ү -> Ù (uni00D9)
+	sub [uni04AF           ustraightcyrillic] by ugrave;#ù;# ү -> ù (uni00F9)
+	sub [uni0424 afii10038 Efcyrillic] by F;# Ф -> F (uni0046)
+	sub [uni0444 afii10086 efcyrillic] by f;# ф -> f (uni0066)
+	sub [uni0425 afii10039 Khacyrillic] by H;# Х -> H (uni0048)
+	sub [uni0445 afii10087 khacyrillic] by h;# х -> h (uni0068)
+	sub [uni04B2           Hadescendercyrillic] by Hcedilla;#Ḩ;# Ҳ -> Ḩ (uni1E28)
+	sub [uni04B3           hadescendercyrillic] by hcedilla;#ḩ;# ҳ -> ḩ (uni1E29)
+	sub [uni04BA           Shhacyrillic] by Hdotbelow;#Ḥ;# Һ -> Ḥ (uni1E24)
+	sub [uni04BB           shhacyrillic] by hdotbelow;#ḥ;# һ -> ḥ (uni1E25)
+	sub [uni0426 afii10040 Tsecyrillic] by C;# Ц -> C (uni0043)
+	sub [uni0446 afii10088 tsecyrillic] by c;# ц -> c (uni0063)
+	sub [uni0427 afii10041 Checyrillic] by Ccaron;#Č;# Ч -> Č (uni010C)
+	sub [uni0447 afii10089 checyrillic] by ccaron;#č;# ч -> č (uni010D)
+	sub [uni04CB           Chekhakassiancyrillic] by Ccedilla;#Ç;# Ҷ -> Ç (uni00C7) # same as uni04AA?
+	sub [uni04CC           chekhakassiancyrillic] by ccedilla;#ç;# ҷ -> ç (uni00E7) # same as uni04AB?
+	sub [uni0428 afii10042 Shacyrillic] by Scaron;#Š;# Ш -> Š (uni0160)
+	sub [uni0448 afii10090 shacyrillic] by scaron;#š;# ш -> š (uni0161)
+	sub [uni0429 afii10043 Shchacyrillic] by Scircumflex;#Ŝ;# Щ -> Ŝ (uni015C)
+	sub [uni0449 afii10091 shchacyrillic] by scircumflex;#ŝ;# щ -> ŝ (uni015D)
+	sub [uni042B afii10045 Yericyrillic] by Y;# Ы -> Y (uni0059)
+	sub [uni044B afii10093 yericyrillic] by y;# ы -> y (uni0079)
+	sub [uni04F8           Yerudieresiscyrillic] by Ydieresis;#Ÿ;# Ӹ -> Ÿ (uni0178)
+	sub [uni04F9           yerudieresiscyrillic] by ydieresis;#ÿ;# ӹ -> ÿ (uni00FF)
+	sub [uni042D afii10047 Ereversedcyrillic] by Egrave;#È;# Э -> È (uni00C8)
+	sub [uni044D afii10095 ereversedcyrillic] by egrave;#è;# э -> è (uni00E8)
+	sub [uni042E afii10048 IUcyrillic] by Ucircumflex;#Û;# Ю -> Û (uni00DB)
+	sub [uni044E afii10096 iucyrillic] by ucircumflex;#û;# ю -> û (uni00FB)
+	sub [uni042F afii10049 IAcyrillic] by Acircumflex;#Â;# Я -> Â (uni00C2)
+	sub [uni044F afii10097 iacyrillic] by acircumflex;#â;# я -> â (uni00E2)
+	sub [uni048C                    ] by Ecaron;#Ě;# Ѣ -> Ě (uni011A)
+	sub [uni048D                    ] by ecaron;#ě;# ѣ -> ě (uni011B)
+	sub [uni046A           Yusbigcyrillic] by Acaron;#Ǎ;# Ѫ -> Ǎ (uni01CD)
+	sub [uni046B           yusbigcyrillic] by acaron;#ǎ;# ѫ -> ǎ (uni01CE)
+	sub [uni0474 afii10148 Izhitsacyrillic] by Ygrave;#Ỳ;# Ѵ -> Ỳ (uni1EF2)
+	sub [uni0475 afii10196 izhitsacyrillic] by ygrave;#ỳ;# ѵ -> ỳ (uni1EF3)
+	sub [uni04A8           Haabkhasiancyrillic] by Ograve;#Ò;# Ҩ -> Ò (uni00D2)
+	sub [uni04A9           haabkhasiancyrillic] by ograve;#ò;# ҩ -> ò (uni00F2)
+	sub [uni044C afii10094 Softsigncyrillic
+	     uni042C afii10046 softsigncyrillic] by primemod;# [Ь ь] -> ʹ	uni02B9
+	sub [uni044A afii10092 Hardsigncyrillic
+	     uni042A afii10044 hardsigncyrillic] by dblprimemod;# [Ъ ъ] -> ʺ	uni02BA
+	sub [uni2035           primereversed] by uni2019;# ’ -> ‵	quoteright; uni02BC: apostrophemod, afii57929
+	sub [uni04CF uni04C0   palochkacyrillic] by uni2021;# Ӏ -> ‡	daggerdbl
 
-#	sub uni0423+0301 by Uacute;#Ú;# У́ -> Ú (U+0423+0301 -> U+00DA)
-#	sub uni0443+0301 by uacute;#ú;# у́ -> ú (U+0443+0301 -> U+00FA)
-#	sub [Ucyrillic uni0423 afii10037]' [acutecomb acutecmb uni0301]' by Uacute;#Ú;# У́ -> Ú (U+0423+0301 -> U+00DA)
-#	sub [ucyrillic uni0443 afii10085]' [acutecomb acutecmb uni0301]' by uacute;#ú;# у́ -> ú (U+0443+0301 -> U+00FA)
+#	sub uni0423+0301 by Uacute;#Ú;# У́ -> Ú (uni0423+0301 -> uni00DA)
+#	sub uni0443+0301 by uacute;#ú;# у́ -> ú (uni0443+0301 -> uni00FA)
+#	sub [uni0301 uni0423 afii10037 Ucyrillic]' [acutecomb acutecmb]' by Uacute;#Ú;# У́ -> Ú (uni0423+0301 -> uni00DA)
+#	sub [uni0301 uni0443 afii10085 ucyrillic]' [acutecomb acutecmb]' by uacute;#ú;# у́ -> ú (uni0443+0301 -> uni00FA)
 ## Substitutions that require combining marks
-#	sub [Schwacyrillic uni04D8] by A hungarumlautcmb;#A̋;# Ә -> A̋ (U+04D8 -> U+0041+030B)
-#	sub [schwacyrillic uni04D9] by a hungarumlautcmb;#a̋;# ә -> a̋ (U+04D9 -> U+0061+030B)
-#	sub [Gheupturncyrillic uni0490 afii10050] by G gravecomb;#G̀;# Ґ -> G̀ (U+0490 -> U+0047+0300)
-#	sub [gheupturncyrillic uni0491 afii10098] by g gravecomb;#g̀;# ґ -> g̀ (U+0491 -> U+0067+0300)
-#	sub [Cheabkhasiancyrillic uni04BC] by C brevecmb;#C̆;# Ҽ -> C̆ (U+04BC -> U+0043+0306)
-#	sub [cheabkhasiancyrillic uni04BD] by c brevecmb;#brevecomb c̆;# ҽ -> c̆ (U+04BD -> U+0063+0306)
-#	sub [Chedescenderabkhasiancyrillic uni04BE] by Ccedilla brevecmb;#Ç̆;# Ҿ -> Ç̆ (U+04BE -> U+00C7+0306)
-#	sub [chedescenderabkhasiancyrillic uni04BF] by ccedilla brevecmb;#ç̆;# ҿ -> ç̆ (U+04BF -> U+00E7+0306)
-#	sub [Zhebrevecyrillic uni04C1] by Z brevecmb;#Z̆;# Ӂ -> Z̆ (U+04C1 -> U+005A+0306)
-#	sub [zhebrevecyrillic uni04C2] by z brevecmb;#z̆;# ӂ -> z̆ (U+04C2 -> U+007A+0306)
-#	sub [Zhedieresiscyrillic uni04DC] by Z macroncmp;#Z̄;# Ӝ -> Z̄ (U+04DC -> U+005A+0304)
-#	sub [zhedieresiscyrillic uni04DD] by z macroncmp;#z̄;# ӝ -> z̄ (U+04DD -> U+007A+0304)
-#	sub [Zhedescendercyrillic uni0496] by Zcaron cedillacmb;#Ž̧;# Җ -> Ž̧ (U+0496 -> U+017D+0327)
-#	sub [zhedescendercyrillic uni0497] by zcaron cedillacmb;#ž̧;# җ -> ž̧ (U+0497 -> U+017E+0327)
-#	sub [Zedieresiscyrillic uni04DE] by Z dieresiscmb;#Z̈;# Ӟ -> Z̈ (U+04DE -> U+005A+0308)
-#	sub [zedieresiscyrillic uni04DF] by z dieresiscmb;#z̈;# ӟ -> z̈ (U+04DF -> U+007A+0308)
-#	sub [Jecyrillic uni0408 afii10057] by J caroncmb;#J̌;# Ј -> J̌ (U+0408 -> U+004A+030C)
-#	sub [jecyrillic uni0458 afii10105] by jcaron;#ǰ;# ј -> ǰ (U+0458 -> U+01F0)
-#	sub [Kastrokecyrillic uni049E] by K macroncmb;#K̄;# Ҟ -> K̄ (U+049E -> U+004B+0304)
-#	sub [kastrokecyrillic uni049F] by k macroncmb;#k̄;# ҟ -> k̄ (U+049F -> U+006B+0304)
-#	sub [Ljecyrillic uni0409 afii10058] by L circumflexcmb;#L̂;# Љ -> L̂ (U+0409 -> U+004C+0302)
-#	sub [ljecyrillic uni0459 afii10106] by l circumflexcmb;#l̂;# љ -> l̂ (U+0459 -> U+006C+0302)
-#	sub [Njecyrillic uni040A afii10059] by N circumflexcmb;#N̂;# Њ -> N̂ (U+040A -> U+004E+0302)
-#	sub [njecyrillic uni045A afii10107] by n circumflexcmb;#n̂;# њ -> n̂ (U+045A -> U+006E+0302)
-#	sub [Tetsecyrillic uni04B4] by C macroncmb;#C̄;# Ҵ -> C̄ (U+04B4 -> U+0043+0304)
-#	sub [tetsecyrillic uni04B5] by c macroncmb;#c̄;# ҵ -> c̄ (U+04B5 -> U+0063+0304)
-#	sub [Chedieresiscyrillic uni04F4] by C dieresiscmb;#C̈;# Ӵ -> C̈ (U+04F4 -> U+0043+0308)
-#	sub [chedieresiscyrillic uni04F5] by c dieresiscmb;#c̈;# ӵ -> c̈ (U+04F5 -> U+0063+0308)
-#	sub [Dzhecyrillic uni040F afii10145] by D circumflexcmb;#D̂;# Џ -> D̂ (U+040F -> U+0044+0302)
-#	sub [dzhecyrillic uni045F afii10193] by d circumflexcmb;#d̂;# џ -> d̂ (U+045F -> U+0064+0302)
-#	sub [Fitacyrillic uni0472 afii10147] by F gravecomb;#gravecmb F̀;# Ѳ -> F̀ (U+0472 -> U+0046+0300)
-#	sub [fitacyrillic uni0473 afii10195] by f gravecomb;#gravecmb f̀;# ѳ -> f̀ (U+0473 -> U+0066+0300)
+#	sub [uni04D8           Schwacyrillic] by A hungarumlautcmb;#A̋;# Ә -> A̋ (uni04D8 -> uni0041+030B)
+#	sub [uni04D9           schwacyrillic] by a hungarumlautcmb;#a̋;# ә -> a̋ (uni04D9 -> uni0061+030B)
+#	sub [uni0490 afii10050 Gheupturncyrillic] by G gravecomb;#G̀;# Ґ -> G̀ (uni0490 -> uni0047+0300)
+#	sub [uni0491 afii10098 gheupturncyrillic] by g gravecomb;#g̀;# ґ -> g̀ (uni0491 -> uni0067+0300)
+#	sub [uni04BC           Cheabkhasiancyrillic] by C brevecmb;#C̆;# Ҽ -> C̆ (uni04BC -> uni0043+0306)
+#	sub [uni04BD           cheabkhasiancyrillic] by c brevecmb;#brevecomb c̆;# ҽ -> c̆ (uni04BD -> uni0063+0306)
+#	sub [uni04BE           Chedescenderabkhasiancyrillic] by Ccedilla brevecmb;#Ç̆;# Ҿ -> Ç̆ (uni04BE -> uni00C7+0306)
+#	sub [uni04BF           chedescenderabkhasiancyrillic] by ccedilla brevecmb;#ç̆;# ҿ -> ç̆ (uni04BF -> uni00E7+0306)
+#	sub [uni04C1           Zhebrevecyrillic] by Z brevecmb;#Z̆;# Ӂ -> Z̆ (uni04C1 -> uni005A+0306)
+#	sub [uni04C2           zhebrevecyrillic] by z brevecmb;#z̆;# ӂ -> z̆ (uni04C2 -> uni007A+0306)
+#	sub [uni04DC           Zhedieresiscyrillic] by Z macroncmp;#Z̄;# Ӝ -> Z̄ (uni04DC -> uni005A+0304)
+#	sub [uni04DD           zhedieresiscyrillic] by z macroncmp;#z̄;# ӝ -> z̄ (uni04DD -> uni007A+0304)
+#	sub [uni0496           Zhedescendercyrillic] by Zcaron cedillacmb;#Ž̧;# Җ -> Ž̧ (uni0496 -> uni017D+0327)
+#	sub [uni0497           zhedescendercyrillic] by zcaron cedillacmb;#ž̧;# җ -> ž̧ (uni0497 -> uni017E+0327)
+#	sub [uni04DE           Zedieresiscyrillic] by Z dieresiscmb;#Z̈;# Ӟ -> Z̈ (uni04DE -> uni005A+0308)
+#	sub [uni04DF           zedieresiscyrillic] by z dieresiscmb;#z̈;# ӟ -> z̈ (uni04DF -> uni007A+0308)
+#	sub [uni0408 afii10057 Jecyrillic] by J caroncmb;#J̌;# Ј -> J̌ (uni0408 -> uni004A+030C)
+#	sub [uni0458 afii10105 jecyrillic] by jcaron;#ǰ;# ј -> ǰ (uni0458 -> uni01F0)
+#	sub [uni049E           Kastrokecyrillic] by K macroncmb;#K̄;# Ҟ -> K̄ (uni049E -> uni004B+0304)
+#	sub [uni049F           kastrokecyrillic] by k macroncmb;#k̄;# ҟ -> k̄ (uni049F -> uni006B+0304)
+#	sub [uni0409 afii10058 Ljecyrillic] by L circumflexcmb;#L̂;# Љ -> L̂ (uni0409 -> uni004C+0302)
+#	sub [uni0459 afii10106 ljecyrillic] by l circumflexcmb;#l̂;# љ -> l̂ (uni0459 -> uni006C+0302)
+#	sub [uni040A afii10059 Njecyrillic] by N circumflexcmb;#N̂;# Њ -> N̂ (uni040A -> uni004E+0302)
+#	sub [uni045A afii10107 njecyrillic] by n circumflexcmb;#n̂;# њ -> n̂ (uni045A -> uni006E+0302)
+#	sub [uni04B4           Tetsecyrillic] by C macroncmb;#C̄;# Ҵ -> C̄ (uni04B4 -> uni0043+0304)
+#	sub [uni04B5           tetsecyrillic] by c macroncmb;#c̄;# ҵ -> c̄ (uni04B5 -> uni0063+0304)
+#	sub [uni04F4           Chedieresiscyrillic] by C dieresiscmb;#C̈;# Ӵ -> C̈ (uni04F4 -> uni0043+0308)
+#	sub [uni04F5           chedieresiscyrillic] by c dieresiscmb;#c̈;# ӵ -> c̈ (uni04F5 -> uni0063+0308)
+#	sub [uni040F afii10145 Dzhecyrillic] by D circumflexcmb;#D̂;# Џ -> D̂ (uni040F -> uni0044+0302)
+#	sub [uni045F afii10193 dzhecyrillic] by d circumflexcmb;#d̂;# џ -> d̂ (uni045F -> uni0064+0302)
+#	sub [uni0472 afii10147 Fitacyrillic] by F gravecomb;#gravecmb F̀;# Ѳ -> F̀ (uni0472 -> uni0046+0300)
+#	sub [uni0473 afii10195 fitacyrillic] by f gravecomb;#gravecmb f̀;# ѳ -> f̀ (uni0473 -> uni0066+0300)
 ## Substitutions that require combining marks
-	sub [Schwacyrillic uni04D8] by Ahungarumlaut;#A̋;# Ә -> A̋ (U+04D8 -> U+0041+030B)
-	sub [schwacyrillic uni04D9] by ahungarumlaut;#a̋;# ә -> a̋ (U+04D9 -> U+0061+030B)
-	sub [Gheupturncyrillic uni0490 afii10050] by Ggrave;#G̀;# Ґ -> G̀ (U+0490 -> U+0047+0300)
-	sub [gheupturncyrillic uni0491 afii10098] by ggrave;#g̀;# ґ -> g̀ (U+0491 -> U+0067+0300)
-	sub [Cheabkhasiancyrillic uni04BC] by Cbreve;#C̆;# Ҽ -> C̆ (U+04BC -> U+0043+0306)
-	sub [cheabkhasiancyrillic uni04BD] by cbreve;#c̆;# ҽ -> c̆ (U+04BD -> U+0063+0306)
-	sub [Chedescenderabkhasiancyrillic uni04BE] by Ccedillabreve;#Ç̆;# Ҿ -> Ç̆ (U+04BE -> U+00C7+0306)
-	sub [chedescenderabkhasiancyrillic uni04BF] by ccedillabreve;#ç̆;# ҿ -> ç̆ (U+04BF -> U+00E7+0306)
-	sub [Zhebrevecyrillic uni04C1] by Zbreve;#Z̆;# Ӂ -> Z̆ (U+04C1 -> U+005A+0306)
-	sub [zhebrevecyrillic uni04C2] by zbreve;#z̆;# ӂ -> z̆ (U+04C2 -> U+007A+0306)
-	sub [Zhedieresiscyrillic uni04DC] by Zmacron;#Z̄;# Ӝ -> Z̄ (U+04DC -> U+005A+0304)
-	sub [zhedieresiscyrillic uni04DD] by zmacron;#z̄;# ӝ -> z̄ (U+04DD -> U+007A+0304)
-	sub [Zhedescendercyrillic uni0496] by Zcaroncedilla;#Ž̧;# Җ -> Ž̧ (U+0496 -> U+017D+0327)
-	sub [zhedescendercyrillic uni0497] by zcaroncedilla;#ž̧;# җ -> ž̧ (U+0497 -> U+017E+0327)
-	sub [Zedieresiscyrillic uni04DE] by Zdieresis;#Z̈;# Ӟ -> Z̈ (U+04DE -> U+005A+0308)
-	sub [zedieresiscyrillic uni04DF] by zdieresis;#z̈;# ӟ -> z̈ (U+04DF -> U+007A+0308)
-	sub [Jecyrillic uni0408 afii10057] by Jcaron;#J̌;# Ј -> J̌ (U+0408 -> U+004A+030C)
-	sub [jecyrillic uni0458 afii10105] by jcaron;#ǰ;# ј -> ǰ (U+0458 -> U+01F0)
-	sub [Kastrokecyrillic uni049E] by Kmacron;#K̄;# Ҟ -> K̄ (U+049E -> U+004B+0304)
-	sub [kastrokecyrillic uni049F] by kmacron;#k̄;# ҟ -> k̄ (U+049F -> U+006B+0304)
-	sub [Ljecyrillic uni0409 afii10058] by Lcircumflex;#L̂;# Љ -> L̂ (U+0409 -> U+004C+0302)
-	sub [ljecyrillic uni0459 afii10106] by lcircumflex;#l̂;# љ -> l̂ (U+0459 -> U+006C+0302)
-	sub [Njecyrillic uni040A afii10059] by Ncircumflex;#N̂;# Њ -> N̂ (U+040A -> U+004E+0302)
-	sub [njecyrillic uni045A afii10107] by ncircumflex;#n̂;# њ -> n̂ (U+045A -> U+006E+0302)
-	sub [Tetsecyrillic uni04B4] by Cmacron;#C̄;# Ҵ -> C̄ (U+04B4 -> U+0043+0304)
-	sub [tetsecyrillic uni04B5] by cmacron;#c̄;# ҵ -> c̄ (U+04B5 -> U+0063+0304)
-	sub [Chedieresiscyrillic uni04F4] by Cdieresis;#C̈;# Ӵ -> C̈ (U+04F4 -> U+0043+0308)
-	sub [chedieresiscyrillic uni04F5] by cdieresis;#c̈;# ӵ -> c̈ (U+04F5 -> U+0063+0308)
-	sub [Dzhecyrillic uni040F afii10145] by Dcircumflex;#D̂;# Џ -> D̂ (U+040F -> U+0044+0302)
-	sub [dzhecyrillic uni045F afii10193] by dcircumflex;#d̂;# џ -> d̂ (U+045F -> U+0064+0302)
-	sub [Fitacyrillic uni0472 afii10147] by Fgrave;#F̀;# Ѳ -> F̀ (U+0472 -> U+0046+0300)
-	sub [fitacyrillic uni0473 afii10195] by fgrave;#f̀;# ѳ -> f̀ (U+0473 -> U+0066+0300)
+	sub [uni04D8           Schwacyrillic] by Ahungarumlaut;#A̋;# Ә -> A̋ (uni04D8 -> uni0041+030B)
+	sub [uni04D9           schwacyrillic] by ahungarumlaut;#a̋;# ә -> a̋ (uni04D9 -> uni0061+030B)
+	sub [uni0490 afii10050 Gheupturncyrillic] by Ggrave;#G̀;# Ґ -> G̀ (uni0490 -> uni0047+0300)
+	sub [uni0491 afii10098 gheupturncyrillic] by ggrave;#g̀;# ґ -> g̀ (uni0491 -> uni0067+0300)
+	sub [uni04BC           Cheabkhasiancyrillic] by Cbreve;#C̆;# Ҽ -> C̆ (uni04BC -> uni0043+0306)
+	sub [uni04BD           cheabkhasiancyrillic] by cbreve;#c̆;# ҽ -> c̆ (uni04BD -> uni0063+0306)
+	sub [uni04BE           Chedescenderabkhasiancyrillic] by Ccedillabreve;#Ç̆;# Ҿ -> Ç̆ (uni04BE -> uni00C7+0306)
+	sub [uni04BF           chedescenderabkhasiancyrillic] by ccedillabreve;#ç̆;# ҿ -> ç̆ (uni04BF -> uni00E7+0306)
+	sub [uni04C1           Zhebrevecyrillic] by Zbreve;#Z̆;# Ӂ -> Z̆ (uni04C1 -> uni005A+0306)
+	sub [uni04C2           zhebrevecyrillic] by zbreve;#z̆;# ӂ -> z̆ (uni04C2 -> uni007A+0306)
+	sub [uni04DC           Zhedieresiscyrillic] by Zmacron;#Z̄;# Ӝ -> Z̄ (uni04DC -> uni005A+0304)
+	sub [uni04DD           zhedieresiscyrillic] by zmacron;#z̄;# ӝ -> z̄ (uni04DD -> uni007A+0304)
+	sub [uni0496           Zhedescendercyrillic] by Zcaroncedilla;#Ž̧;# Җ -> Ž̧ (uni0496 -> uni017D+0327)
+	sub [uni0497           zhedescendercyrillic] by zcaroncedilla;#ž̧;# җ -> ž̧ (uni0497 -> uni017E+0327)
+	sub [uni04DE           Zedieresiscyrillic] by Zdieresis;#Z̈;# Ӟ -> Z̈ (uni04DE -> uni005A+0308)
+	sub [uni04DF           zedieresiscyrillic] by zdieresis;#z̈;# ӟ -> z̈ (uni04DF -> uni007A+0308)
+	sub [uni0408 afii10057 Jecyrillic] by Jcaron;#J̌;# Ј -> J̌ (uni0408 -> uni004A+030C)
+	sub [uni0458 afii10105 jecyrillic] by jcaron;#ǰ;# ј -> ǰ (uni0458 -> uni01F0)
+	sub [uni049E           Kastrokecyrillic] by Kmacron;#K̄;# Ҟ -> K̄ (uni049E -> uni004B+0304)
+	sub [uni049F           kastrokecyrillic] by kmacron;#k̄;# ҟ -> k̄ (uni049F -> uni006B+0304)
+	sub [uni0409 afii10058 Ljecyrillic] by Lcircumflex;#L̂;# Љ -> L̂ (uni0409 -> uni004C+0302)
+	sub [uni0459 afii10106 ljecyrillic] by lcircumflex;#l̂;# љ -> l̂ (uni0459 -> uni006C+0302)
+	sub [uni040A afii10059 Njecyrillic] by Ncircumflex;#N̂;# Њ -> N̂ (uni040A -> uni004E+0302)
+	sub [uni045A afii10107 njecyrillic] by ncircumflex;#n̂;# њ -> n̂ (uni045A -> uni006E+0302)
+	sub [uni04B4           Tetsecyrillic] by Cmacron;#C̄;# Ҵ -> C̄ (uni04B4 -> uni0043+0304)
+	sub [uni04B5           tetsecyrillic] by cmacron;#c̄;# ҵ -> c̄ (uni04B5 -> uni0063+0304)
+	sub [uni04F4           Chedieresiscyrillic] by Cdieresis;#C̈;# Ӵ -> C̈ (uni04F4 -> uni0043+0308)
+	sub [uni04F5           chedieresiscyrillic] by cdieresis;#c̈;# ӵ -> c̈ (uni04F5 -> uni0063+0308)
+	sub [uni040F afii10145 Dzhecyrillic] by Dcircumflex;#D̂;# Џ -> D̂ (uni040F -> uni0044+0302)
+	sub [uni045F afii10193 dzhecyrillic] by dcircumflex;#d̂;# џ -> d̂ (uni045F -> uni0064+0302)
+	sub [uni0472 afii10147 Fitacyrillic] by Fgrave;#F̀;# Ѳ -> F̀ (uni0472 -> uni0046+0300)
+	sub [uni0473 afii10195 fitacyrillic] by fgrave;#f̀;# ѳ -> f̀ (uni0473 -> uni0066+0300)
 } CyrillicRomanization;
 
-#lookup GreekRomanization {
-#} GreekRomanization;
+lookup GreekRomanization {
+# ISO 843:1997
+	sub [uni0391 Alpha]   by A;# Α -> A
+	sub [uni03B1 alpha]   by a;# α -> a 
+	sub [uni0392 Beta]    by V;# Β -> V
+	sub [uni03B2 beta]    by v;# β -> v 
+	sub [uni0393 Gamma]   by G;# Γ -> G
+	sub [uni03B3 gamma]   by g;# γ -> g 
+	sub [uni0394 Delta]   by D;# Δ -> D
+	sub [uni03B4 delta]   by d;# δ -> d 
+	sub [uni0395 Epsilon] by E;# Ε -> E
+	sub [uni03B5 epsilon] by e;# ε -> e 
+	sub [uni0396 Zeta]    by Z;# Ζ -> Z
+	sub [uni03B6 zeta]    by z;# ζ -> z 
+	sub [uni0397 Eta]     by Imacron;# Η -> Ī uni012A
+	sub [uni03B7 eta]     by imacron;# η -> ī uni012B 
+	sub [uni0398 Theta]   by Th;# Θ -> Th T_h
+	sub [uni03B8 theta]   by th;# θ -> th t_h
+	sub [uni0399 Iota]    by I;# Ι -> I
+	sub [uni03B9 iota]    by i;# ι -> i 
+	sub [uni039A Kappa]   by K;# Κ -> K
+	sub [uni03BA kappa]   by k;# κ -> k 
+	sub [uni039B Lambda]  by L;# Λ -> L
+	sub [uni03BB lambda]  by l;# λ -> l 
+	sub [uni039C Mu]      by M;# Μ -> M
+	sub [uni03BC mu]      by m;# μ -> m 
+	sub [uni039D Nu]      by N;# Ν -> N
+	sub [uni03BD nu]      by n;# ν -> n 
+	sub [uni039E Xi]      by X;# Ξ -> X
+	sub [uni03BE xi]      by x;# ξ -> x 
+	sub [uni039F Omicron] by O;# Ο -> O
+	sub [uni03BF omicron] by o;# ο -> o 
+	sub [uni03A0 Pi]      by P;# Π -> P
+	sub [uni03C0 pi]      by p;# π -> p 
+	sub [uni03A1 Rho]     by R;# Ρ -> R
+	sub [uni03C1 rho]     by r;# ρ -> r 
+	sub [uni03A3 Sigma]   by S;# Σ -> S
+	sub [uni03C3 sigma]   by s;# σ -> s ſ
+	sub [uni03C2 sigma1 sigmafinal] by s;# ς -> s 
+	sub [uni03A4 Tau]     by T;# Τ -> T
+	sub [uni03C4 tau]     by t;# τ -> t 
+	sub [uni03A5 Upsilon] by Y;# Υ -> Y
+	sub [uni03C5 upsilon] by y;# υ -> y 
+	sub [uni03A6 Phi]     by F;# Φ -> F
+	sub [uni03C6 phi]     by f;# φ -> f 
+	sub [uni03A7 Chi]     by Ch;# Χ -> Ch C_h
+	sub [uni03C7 chi]     by ch;# χ -> ch c_h
+	sub [uni03A8 Psi]     by Ps;# Ψ -> Ps P_s
+	sub [uni03C8 psi]     by ps;# ψ -> ps p_s
+	sub [uni03A9 Omega]   by Omacron;# Ω -> Ō 014C
+	sub [uni03C9 omega]   by omacron;# ω -> ō 014D 
+# 
+	sub [uni0386 Alphatonos]        by Aacute;# Ά	Á -> uni00C1
+	sub [uni03AC alphatonos]        by aacute;# ά	á -> uni00E1 
+	sub [uni0388 Epsilontonos]      by Eacute;# Έ	É -> uni00C9
+	sub [uni03AD epsilontonos]      by eacute;# έ	é -> uni00E9 
+	sub [uni0389 Etatonos]          by Imacronacute;# Ή ->	Ī́	Ī+uni0301	(combining acute accent)
+	sub [uni03AE etatonos]          by imacronacute;# ή ->	ī́	ī+uni0301	(combining acute accent)
+	sub [uni038A Iotatonos]         by Iacute;# Ί	Í -> uni00CD
+	sub [uni03AF iotatonos]         by iacute;# ί	í -> uni00ED 
+	sub [uni03AA Iotadieresis]      by Idieresis;# Ϊ	Ï -> uni00CF
+	sub [uni03CA iotadieresis]      by idieresis;# ϊ	ï -> uni00EF 
+	sub [uni0390 iotadieresistonos] by idieresisacute;# ΐ -> ḯ uni1E2F
+	sub [uni038C Omicrontonos]      by Oacute;# Ό	Ó -> uni00D3
+	sub [uni03CC omicrontonos]      by oacute;# ό	ó -> uni00F3 
+	sub [uni038E Upsilontonos]      by Yacute;# Ύ	Ý -> uni00DD
+	sub [uni03CD upsilontonos]      by yacute;# ύ	ý -> uni00FD 
+	sub [uni03AB Upsilondieresis]   by Ydieresis;# Ϋ	Ÿ -> uni0178
+	sub [uni03CB upsilondieresis]   by ydieresis;# ϋ	ÿ -> uni00FF 
+	sub [uni03B0 upsilondieresistonos] by ydieresisacute;# ΰ -> ÿ́	ÿ+0301 (combining acute accent)
+	sub [uni038F Omegatonos]        by Omacronacute;# Ώ	Ṓ -> uni1E52
+	sub [uni03CE omegatonos]        by omacronacute;# ώ	ṓ -> uni1E53 
+} GreekRomanization;
 
-#lookup HebrewRomanization {
-#} HebrewRomanization;
+lookup HebrewRomanization {
+# ISO 259-1:1984, -2:1994, -3:1999
+	sub [uni05D0 afii57664 alef       alefhebrew      ] by ringhalfright;# (א) -> ʾ | ˀ 
+	sub [uni05D1 afii57665 bet        bethebrew       ] by b;# (ב) -> b 
+	sub [uni05D2 afii57666 gimel      gimelhebrew     ] by g;# (ג) -> g 
+	sub [uni05D3 afii57667 dalet      dalethebrew     ] by d;# (ד) -> d 
+	sub [uni05D4 afii57668 he         hehebrew        ] by h;# (ה) -> h 
+	sub [uni05D5 afii57669 vav        vavhebrew       ] by w;# (ו) -> w 
+	sub [uni05D6 afii57670 zayin      zayinhebrew     ] by z;# (ז) -> z 
+	sub [uni05D7 afii57671 het        hethebrew       ] by hdotbelow;# (ח) -> ḥ 
+	sub [uni05D8 afii57672 tet        tethebrew       ] by tdotbelow;# (ט) -> ṭ 
+	sub [uni05D9 afii57673 yod        yodhebrew       ] by y;# (י) -> y 
+	sub [uni05DA afii57674 finalkaf   finalkafhebrew  ] by k;# (ך) -> k
+	sub [uni05DB afii57675 kaf        kafhebrew       ] by k;# (כ) -> k
+	sub [uni05DC afii57676 lamed      lamedhebrew     ] by l;# (ל) -> l 
+	sub [uni05DD afii57677 finalmem   finalmemhebrew  ] by m;# (ם) -> m 
+	sub [uni05DE afii57678 mem        memhebrew       ] by m;# (מ) -> m 
+	sub [uni05DF afii57679 finalnun   finalnunhebrew  ] by n;# (ן) -> n 
+	sub [uni05E0 afii57680 nun        nunhebrew       ] by n;# (נ) -> n 
+	sub [uni05E1 afii57681 samekh     samekhhebrew    ] by s;# (ס) -> s 
+	sub [uni05E2 afii57682 ayin       ayinhebrew      ] by ringhalfleft;# (ע) -> ʿ | ˁ 
+	sub [uni05E3 afii57683 finalpe    finalpehebrew   ] by p;# (ף) -> p 
+	sub [uni05E4 afii57684 pe         pehebrew        ] by p;# (פ) -> p
+	sub [uni05E5 afii57685 finaltsadi finaltsadihebrew] by c;# (צ) -> c 
+	sub [uni05E6 afii57686 tsadi      tsadihebrew     ] by c;# (צ) -> c 
+	sub [uni05E7 afii57687 qof        qofhebrew       ] by q;# (ק) -> q 
+	sub [uni05E8 afii57688 resh       reshhebrew      ] by r;# (ר) -> r 
+	sub [uni05E9 afii57689 shin       shinhebrew      ] by scaron;# (ש) -> š 
+	sub [uni05EA afii57690 tav        tavhebrew       ] by t;# (ת) -> t 
+#	sub [uni05E afii5768 hebrew] by gcaron;# (ג׳) -> ǧ 
+#	sub [uni05E afii5768 hebrew] by zcaron;# (ז׳) -> ž 
+#	sub [uni05E afii5768 hebrew] by ccaron;# (צ׳) -> č 
+#	sub [uni05E afii5768 hebrew] by sacute;# (שׂ) -> ś sgrave?
+} HebrewRomanization;
 
 #lookup ArmenianRomanization {
+# ISO 9985
 #} ArmenianRomanization;
 
 #lookup GeorgianRomanization {
 #} GeorgianRomanization;
+
+#lookup ThaiRomanization {
+# ISO 11940
+#} ThaiRomanization;
+
+#lookup DevanagariRomanization {
+# ISO 15919
+#} DevanagariRomanization;
+
+#lookup KanaRomanization {
+# ISO 3602 (Strict)
+# Katakana
+# Hiragana
+#} KanaRomanization;
+
+#lookup PinyinRomanization {
+# ISO 7098
+#} PinyinRomanization;
+
+lookup ArabicRomanization {
+# ISO 233-1:1984
+	sub [uni0621 afii57409 hamzaarabic] by verticallinelowmod;# uni02CC;# ( ء) -> ˌ (hamza without carrier -> low vertical line) DIN: ringhalfright   ISO-2: ’
+	sub [uni0654] by verticallinemod;# uni02C8;# (ٔ◌) -> ˈ (hamza above carrier -> vertical line high) DIN: ringhalfright
+	sub [uni0655] by ;# (ٕ◌) hamza below carrier (= alif) DIN: ringhalfright   ISO-2: aa
+	sub [uni0627 afii57415 alefarabic ] by ringhalfright;# uni02BE;# (ا) -> ʾ (modifier letter right half ring) DIN: amacron
+	sub [uni0639 afii57433 ainarabic  ] by ringhalfleft;# uni02BF;# (ع) -> ʿ (modifier letter left half ring)   ISO-2: rcaron
+# to uppercase:
+	sub [uni0628 afii57416 beharabic  ] by B;# (ب) 
+	sub [uni062A afii57418 teharabic  ] by T;# (ت) 
+	sub [uni062B afii57419 theharabic ] by Tlinebelow;# uni1E6E;# (ث) -> Ṯ 
+	sub [uni062C afii57420 jeemarabic ] by Gcaron;# uni01E6;# (ج) ->  Ǧ   ISO-2: J
+	sub [uni062D afii57421 haharabic  ] by Hdotbelow;# uni1E24;# (ح) -> Ḥ 
+	sub [uni062E afii57422 khaharabic ] by Hlinebelow;# uni1E96;# (خ) -> H̱ H+uni0331 afii57423 DIN: Hbrevebelow   ISO 233-2: X
+	sub [uni062F afii57423 dalarabic  ] by D;# (د)
+	sub [uni0630 afii57424 thalarabic ] by Dlinebelow;# uni1E0E;# (ذ)  -> Ḏ   ISO-2: Dcroat
+	sub [uni0631 afii57425 reharabic  ] by R;# (ر)
+	sub [uni0632 afii57426 zainarabic ] by Z;# (ز)
+	sub [uni0633 afii57427 seenarabic ] by S;# (س)
+	sub [uni0634 afii57428 sheenarabic] by Scaron;# uni0160;# (ش) ->  Š 
+	sub [uni0635 afii57429 sadarabic  ] by Sdotbelow;# uni1E62;# (ص) ->  Ṣ
+	sub [uni0636 afii57430 dadarabic  ] by Ddotbelow;# uni1E0C;# (ض) ->  Ḍ
+	sub [uni0637 afii57431 taharabic  ] by Tdotbelow;# uni1E6C;# (ط) ->  Ṭ
+	sub [uni0638 afii57432 zaharabic  ] by Zdotbelow;# uni1E92;# (ظ) ->  Ẓ   ISO-2: Dcroatdotbelow
+	sub [uni063A afii57434 ghainarabic] by Gdotaccent;# Gdot uni0120;# (غ) ->  Ġ   ISO-2: G
+	sub [uni0641 afii57441 feharabic  ] by F;# (ف) 
+	sub [uni0642 afii57442 qafarabic  ] by Q;# (ق) 
+	sub [uni0643 afii57443 kafarabic  ] by K;# (ك) 
+	sub [uni0644 afii57444 lamarabic  ] by L;# (ل) 
+	sub [uni0645 afii57445 meemarabic ] by M;# (م) 
+	sub [uni0646 afii57446 noonarabic ] by N;# (ن) 
+	sub [uni0647 afii57470 heharabic  ] by H;# (ه) 
+	sub [uni0648 afii57448 wawarabic  ] by W;# (و)   vocalic: umacron   ISO-2: O
+	sub [uni064A afii57450 yeharabic  ] by Y;# (ي)   vocalic: imacron   ISO-2: E
+#	sub [uni0622 afii57410 alefmaddaabovearabic] by ;# (آ)
+	sub [uni0629 afii57417 tehmarbutaarabic    ] by Tdieresis;# uni1E97;# (ة) ->  T+uni0308 afii57449 (combining diaeresis)   DIN: H / T   ISO-2: Tbar
+	sub [uni0649 afii57449 alefmaksuraarabic   ] by Ygrave;# uni1EF2;# (ى)  Ỳ  DIN: amacron   ISO-2: agrave
+# to lowercase:
+	sub [uni0628 afii57416 beharabic  ] by b;# (ب) 
+	sub [uni062A afii57418 teharabic  ] by t;# (ت) 
+	sub [uni062B afii57419 theharabic ] by tlinebelow;# uni1E6F;# (ث) -> ṯ
+	sub [uni062C afii57420 jeemarabic ] by gcaron;# uni01E7;# (ج) ->  ǧ   ISO-2: j
+	sub [uni062D afii57421 haharabic  ] by hdotbelow;# uni1E25;# (ح) -> ḥ
+	sub [uni062E afii57422 khaharabic ] by hlinebelow;# uni1E96;# (خ) -> ẖ   DIN: hbrevebelow   ISO 233-2: x
+	sub [uni062F afii57423 dalarabic  ] by d;# (د)
+	sub [uni0630 afii57424 thalarabic ] by dlinebelow;# uni1E0F;# (ذ)  -> ḏ   ISO-2: dcroat
+	sub [uni0631 afii57425 reharabic  ] by r;# (ر)
+	sub [uni0632 afii57426 zainarabic ] by z;# (ز)
+	sub [uni0633 afii57427 seenarabic ] by s;# (س)
+	sub [uni0634 afii57428 sheenarabic] by scaron;# uni0161;# (ش) ->  š
+	sub [uni0635 afii57429 sadarabic  ] by sdotbelow;# uni1E63;# (ص) ->  ṣ
+	sub [uni0636 afii57430 dadarabic  ] by ddotbelow;# uni1E0D;# (ض) ->  ḍ
+	sub [uni0637 afii57431 taharabic  ] by tdotbelow;# uni1E6D;# (ط) ->  ṭ
+	sub [uni0638 afii57432 zaharabic  ] by zdotbelow;# uni1E93;# (ظ) ->  ẓ   ISO-2: dcroatdotbelow
+	sub [uni063A afii57434 ghainarabic] by gdotaccent;# gdot uni0121;# (غ) ->  ġ   ISO-2: g
+	sub [uni0641 afii57441 feharabic  ] by f;# (ف) 
+	sub [uni0642 afii57442 qafarabic  ] by q;# (ق) 
+	sub [uni0643 afii57443 kafarabic  ] by k;# (ك) 
+	sub [uni0644 afii57444 lamarabic  ] by l;# (ل) 
+	sub [uni0645 afii57445 meemarabic ] by m;# (م) 
+	sub [uni0646 afii57446 noonarabic ] by n;# (ن) 
+	sub [uni0647 afii57470 heharabic  ] by h;# (ه) 
+	sub [uni0648 afii57448 wawarabic  ] by w;# (و)   vocalic: umacron   ISO-2: o
+	sub [uni064A afii57450 yeharabic  ] by y;# (ي)   vocalic: imacron   ISO-2: e
+#	sub [uni0622 afii57410 alefmaddaabovearabic] by ;# (آ)
+	sub [uni0629 afii57417 tehmarbutaarabic    ] by tdieresis;# uni1E97;# (ة) -> ẗ   DIN: h / t   ISO-2: tbar
+	sub [uni0649 afii57449 alefmaksuraarabic   ] by ygrave;# uni1EF3;# (ى)  Ỳ | ỳ  DIN: amacron   ISO-2: agrave
+# digits
+	sub [uni0660 afii57392 zeroarabic ] by zero;#  (٠) -> 0
+	sub [uni0661 afii57393 onearabic  ] by one;#   (١) -> 1
+	sub [uni0662 afii57394 twoarabic  ] by two;#   (٢) -> 2
+	sub [uni0663 afii57395 threearabic] by three;# (٣) -> 3
+	sub [uni0664 afii57396 fourarabic ] by four;#  (٤) -> 4
+	sub [uni0665 afii57397 fivearabic ] by five;#  (٥) -> 5
+	sub [uni0666 afii57398 sixarabic  ] by six;#   (٦) -> 6
+	sub [uni0667 afii57399 sevenarabic] by seven;# (٧) -> 7
+	sub [uni0668 afii57400 eightarabic] by eight;# (٨) -> 8
+	sub [uni0669 afii57401 ninearabic ] by nine;#  (٩)‎ -> 9
+# DIN 31635:2011-07
+} ArabicRomanization;
 
 } rmnz;
