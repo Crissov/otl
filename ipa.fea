@@ -1,0 +1,292 @@
+languagesystem DFLT dflt;
+languagesystem latn dflt;
+
+lookup XSAMPALetter {
+# Uppercase letters
+sub A by ascript;	# A -> ɑ – open back unrounded vowel
+sub B by beta;	# B -> β – voiced bilabial fricative
+sub C by ccedilla;	# C -> ç – voiceless palatal fricative
+sub D by eth;	# D -> ð – voiced dental fricative
+sub E by eopen;	# E -> ɛ – open-mid front unrounded vowel
+sub F by mhook;	# F -> ɱ – labiodental nasal
+sub G by gammalatinsmall;	# G -> ɣ – voiced velar fricative – ramshorn?
+sub H by hturned;	# H -> ɥ – labial-palatal approximant
+sub I by uni026A;	#i.sc|I.sc# I -> ɪ – near-close near-front unrounded vowel
+sub J by nhookleft;	# J -> ɲ – palatal nasal
+sub K by lbelt;	# K -> ɬ – voiceless alveolar lateral fricative
+sub L by yturned;	# L -> ʎ – palatal lateral approximant
+sub M by mturned;	# M -> ɯ – close back unrounded vowel
+sub N by eng;	# N -> ŋ – velar nasal
+sub O by oopen;	# O -> ɔ – open-mid back rounded vowel
+sub P by vhook;	# P -> ʋ – labiodental approximant
+sub Q by ascriptturned;	# Q -> ɒ – open back rounded vowel
+sub R by Rsmallinverted;	# R -> ʁ – voiced uvular fricative
+sub S by esh;	# S -> ʃ – voiceless postalveolar fricative
+sub T by theta;	# T -> θ – voiceless dental fricative
+sub U by upsilonlatin;	# U -> ʊ – near-close near-back rounded vowel
+sub V by vturned;	# V -> ʌ – open-mid back unrounded vowel
+sub W by wturned;	# W -> ʍ – voiceless labial-velar fricative
+sub X by chi;	# X -> χ – voiceless uvular fricative
+sub Y by uni028F;	#y.sc|Y.sc# Y -> ʏ – near-close near-front rounded vowel
+sub Z by ezh;	# Z -> ʒ – voiced postalveolar fricative
+} XSAMPALetter;
+
+#lookup XSAMPAletter {
+# Lowercase letters
+# normal lowercase letters do not need to be transliterated
+# sub a by a;	# open front unrounded vowel
+# sub b by b;	# voiced bilabial plosive
+# sub c by c;	# voiceless palatal plosive
+# sub d by d;	# voiced alveolar plosive
+# sub e by e;	# close-mid front unrounded vowel
+# sub f by f;	# voiceless labiodental fricative
+# sub g by ɡ;	# voiced velar plosive
+# sub h by h;	# voiceless glottal fricative
+# sub i by i;	# close front unrounded vowel
+# sub j by j;	# palatal approximant
+# sub k by k;	# voiceless velar plosive
+# sub l by l;	# alveolar lateral approximant
+# sub m by m;	# bilabial nasal
+# sub n by n;	# alveolar nasal
+# sub o by o;	# close-mid back rounded vowel
+# sub p by p;	# voiceless bilabial plosive
+# sub q by q;	# voiceless uvular plosive
+# sub r by r;	# alveolar trill
+# sub s by s;	# voiceless alveolar fricative
+# sub t by t;	# voiceless alveolar plosive
+# sub u by u;	# close back rounded vowel
+# sub v by v;	# voiced labiodental fricative
+# sub w by w;	# labial-velar approximant
+# sub x by x;	# voiceless velar fricative
+# sub y by y;	# close front rounded vowel
+# sub z by z;	# voiced alveolar fricative
+#} XSAMPAletter;
+
+lookup XSAMPAnoIPA {
+# same IPA
+sub period   by period;	# . -> . – syllable break
+sub hyphen   by hyphen;	# - -> - – separator, no IPA symbol?
+# no IPA – substitution to empty still require a glyph name!
+sub asterisk by zerowidthspace;	# * -> – undefined escape character, SAMPA's "conjunctor"
+sub slash    by zerowidthspace;	# / -> – indeterminacy in French vowels
+sub less     by zerowidthspace;	# < -> – begin nonsegmental notation (e.g. SAMPROSA)
+sub greater  by zerowidthspace;	# > -> – end nonsegmental notation
+} XSAMPAnoIPA;
+
+lookup XSAMPAsymbol {
+# Non-letter symbols without marks following them
+sub quote       by uni02C8;	#verticallinemod# " -> ˈ – lexical stress
+sub percent     by verticallinelowmod;	# % -> ˌ – secondary stress
+sub colon       by colontriangularmod;	# : -> ː – long
+sub at          by schwa;	# @ -> ə – schwa
+sub braceleft   by ae;	# { -> æ – near-open front unrounded vowel
+sub braceright  by ubar;	# } -> ʉ – close central rounded vowel
+sub one         by istroke;	# 1 -> ɨ – close central unrounded vowel
+sub two         by oslash;	# 2 -> ø – close-mid front rounded vowel
+sub three       by eopenreversed;	# 3 -> ɜ – open-mid central unrounded vowel
+sub four        by rfishhook;	# 4 -> ɾ – alveolar flap
+sub five        by lmiddletilde;	# 5 -> ɫ – velarized alveolar lateral approximant
+sub six         by aturned;	# 6 -> ɐ – near-open central vowel
+sub seven       by ramshorn;	# 7 -> ɤ – close-mid back unrounded vowel
+sub eight       by obarred;	# 8 -> ɵ – close-mid central rounded vowel
+sub nine        by oe;	# 9 -> œ – open-mid front rounded vowel
+sub ampersand   by uni0276;	#oe.sc|OE.sc# & -> ɶ – open front rounded vowel
+sub question    by glottalstop;	# ? -> ʔ – glottal stop
+sub asciicircum by uniA71B;	# ^ -> ꜛ – upstep
+sub exclam      by uniA71C;	# ! -> ꜜ – downstep
+#sub [bar verticalbar] by bar;	# | -> | – minor (foot) group
+
+# Diacritics
+#sub quotesingle by jsuperior;	# ' -> ʲ – palatalized ## problematic, since also used as stress mark, therefore not in CXS
+sub grave       by rhotichookmod;	# ` -> ˞ – r-colored vowel, rhotacization
+# Combining diacritics
+sub equal       by verticallinebelowcmb;	# = -> o̩ – syllabic 
+sub asciitilde  by tildecomb;	# ~ -> õ – nasalization
+} XSAMPAsymbol;
+
+lookup XSAMPAmarksymbol {
+# Non-letter symbols with single mark ‘_’ preceding them
+# no IPA
+sub underscore' less'        by zerowidthspace;	# _< -> o – implosive consonant (IPA uses separate symbols for implosives)
+# combining diacritics
+sub underscore' quote'       by dieresiscmb;	# _" -> ö – centralized
+sub underscore' plus'        by plusbelowcmb;	# _+ -> o̟ – advanced
+sub underscore' hyphen'      by minusbelowcmb;	# _- -> o̠ – retracted
+sub underscore' slash'       by caroncmb;	# _/ -> ǒ – rising tone
+sub underscore' zero'        by ringbelowcmb;	# _0 -> o̥ – voiceless
+sub underscore' equal'       by verticallinebelowcmb;	# _= -> o̩ – syllabic 
+sub underscore' backslash'   by circumflexcmb;	# _\ -> ô – falling tone 
+sub underscore' asciicircum' by breveinvertedbelowcmb;	# _^ -> o̯ – non-syllabic 
+sub underscore' braceright'  by leftangleabovecmb;	# _} -> o̚ – no audible release
+sub underscore' asciitilde'  by tildecomb;	#tildecmb# _~ -> õ – nasalization
+# modifier
+sub underscore' greater'     by apostrophemod;	#afii57929# _> -> ʼ – ejective consonant
+} XSAMPAmarksymbol;
+
+lookup XSAMPAmarkLetter {
+# Uppercase letters with single mark ‘_’ preceding them
+sub underscore' A' by lefttackbelowcmb;	# _A -> o̘ – advanced tongue root
+sub underscore' B' by dblgravecmb;	# _B -> ȍ – extra low tone 
+sub underscore' F' by circumflexcmb ;	# _F -> ô – falling tone 
+sub underscore' G' by gammasuperior;	# _G -> ˠ – velarization|velarized
+sub underscore' H' by acutecmb;	#acutecomb# _H -> ó – high tone 
+sub underscore' L' by gravecmb;	#gravecomb# _L -> ò – low tone 
+sub underscore' M' by macroncmb;	# _M -> ō – mid tone 
+sub underscore' N' by seagullbelowcmb;	# _N -> o̼ – linguolabial
+sub underscore' O' by ringhalfrightbelowcmb;	# _O -> o̹ – more rounded
+sub underscore' R' by caroncmb;	# _R -> ǒ – rising tone 
+sub underscore' T' by hungarumlautcmb;	# _T -> ő – extra high tone 
+sub underscore' X' by brevecmb;	# _X -> ŏ – extra-short 
+} XSAMPAmarkLetter;
+
+lookup XSAMPAmarkletter {
+# Lowercase letters with single mark ‘_’ preceding them
+# modifiers
+sub underscore' h' by hsuperior;	# _h -> ʰ – aspirated
+sub underscore' j' by jsuperior;	# _j -> ʲ – palatalized
+sub underscore' l' by uni02E1;	#lsuperior# _l -> ˡ – lateral release
+sub underscore' n' by nsuperior;	# _n -> ⁿ – nasal release
+sub underscore' w' by wsuperior;	# _w -> ʷ – labialisation|labialized
+# combining diacritics
+sub underscore' a' by bridgeinvertedbelowcmb;	# _a -> o̺ – apical consonant
+sub underscore' c' by ringhalfleftbelowcmb;	# _c -> o̜ – less rounded 
+sub underscore' d' by bridgebelowcmb;	# _d -> o̪ – dental consonant|dental
+sub underscore' e' by tildeoverlaycmb;	# _e -> o̴ – velarized or pharyngealized; also see 5 
+sub underscore' k' by tildebelowcmb;	# _k -> o̰ – creaky voice
+sub underscore' m' by squarebelowcmb;	# _m -> o̻ – laminal consonant
+sub underscore' o' by downtackbelowcmb;	# _o -> o̞ – lowered
+sub underscore' q' by righttackbelowcmb;	# _q -> o ̙ – retracted tongue root
+sub underscore' r' by uptackbelowcmb;	# _r -> o̝ – raised
+sub underscore' t' by dieresisbelowcmb;	# _t -> o̤ – breathy voice
+sub underscore' v' by caronbelowcmb;	# _v -> o̬ – voiced consonant|voiced
+sub underscore' x' by xabovecmb;	# _x -> o̽ – mid-centralized 
+} XSAMPAmarkletter;
+
+lookup XSAMPAsymbolmark {
+# Non-letter symbols with single mark ‘|’ following them – reduplicated
+sub [bar verticalbar]' [bar verticalbar]' by dblverticalbar;	# || -> ‖ – major (intonation) group
+# Non-letter symbols with single mark ‘\’ following them
+sub colon'    backslash' by colontriangularhalfmod;	# :\ -> ˑ – vowel length half long
+sub at'       backslash' by ereversed;	# @\ -> ɘ – close-mid central unrounded vowel
+sub three'    backslash' by eopenreversedclosed;	# 3\ -> ɞ – open-mid central rounded vowel
+sub question' backslash' by glottalstopreversed;	# ?\ -> ʕ – voiced pharyngeal fricative
+sub less'     backslash' by glottalstopstrokereversed;	# <\ -> ʢ – voiced epiglottal fricative
+sub greater'  backslash' by glottalstopstroke;	# >\ -> ʡ – epiglottal plosive
+sub exclam'   backslash' by clickretroflex;	# !\ -> ǃ – postalveolar click
+sub [bar verticalbar]' backslash' by clickdental;	# |\ -> ǀ – dental click
+sub equal'    backslash' by clickalveolar;	# =\ -> ǂ – palatal click
+sub hyphen'   backslash' by uni203F;	# -\ -> ‿ – linking mark (liaison), absence of break
+} XSAMPAsymbolmark;
+
+lookup XSAMPAlettermark {
+# Lowercase letters with a single mark ‘`’ following them
+sub d' grave' by dtail;	# d` -> ɖ – voiced retroflex plosive
+sub l' grave' by lhookretroflex;	# l` -> ɭ – retroflex lateral approximant
+sub n' grave' by nhookretroflex;	# n` -> ɳ – retroflex nasal
+sub r' grave' by rhook;	# r` -> ɽ – retroflex flap
+sub s' grave' by shook;	# s` -> ʂ – voiceless retroflex fricative
+sub t' grave' by tretroflexhook;	# t` -> ʈ – voiceless retroflex plosive
+sub z' grave' by zretroflexhook;	# z` -> ʐ – voiced retroflex fricative
+# Lowercase letters with a single mark ‘\’ following them
+sub h' backslash' by hhook;	# h\ -> ɦ – voiced glottal fricative
+sub j' backslash' by jcrossedtail;	# j\ -> ʝ – voiced palatal fricative
+sub l' backslash' by rlonglegturned;	# l\ -> ɺ – alveolar lateral flap
+sub p' backslash' by philatin;	# p\ -> ɸ – voiceless bilabial fricative
+sub r' backslash' by rturned;	# r\ -> ɹ – alveolar approximant
+sub s' backslash' by ccurl;	# s\ -> ɕ – voiceless alveolo-palatal fricative
+sub v' backslash' by vhook;	# v\ -> ʋ – labiodental approximant
+sub x' backslash' by henghook;	# x\ -> ɧ – voiceless palatal-velar fricative
+sub z' backslash' by zcurl;	# z\ -> ʑ – voiced alveolo-palatal fricative
+} XSAMPAlettermark;
+
+lookup XSAMPALettermark {
+# Uppercase letters with a single mark ‘\’ following them
+sub B' backslash' by uni0299;	#b.sc|B.sc# B\ -> ʙ – bilabial trill
+sub G' backslash' by uni0262;	#g.sc|G.sc# G\ -> ɢ – voiced uvular plosive
+sub H' backslash' by uni029C;	#h.sc|H.sc# H\ -> ʜ – voiceless epiglottal fricative
+sub I' backslash' by idieresis;	# I\ -> ɪ̈ – near-close central unrounded vowel ### ?
+sub J' backslash' by jotdotlessstroke;	# J\ -> ɟ – voiced palatal plosive
+sub K' backslash' by lezh;	# K\ -> ɮ – voiced alveolar lateral fricative
+sub L' backslash' by uni029F;	#l.sc|L.sc# L\ -> ʟ – velar lateral approximant
+sub M' backslash' by mlonglegturned;	# M\ -> ɰ – velar approximant
+sub N' backslash' by uni0274;	#n.sc|N.sc# N\ -> ɴ – uvular nasal
+sub O' backslash' by bilabialclick;	# O\ -> ʘ – bilabial click
+sub R' backslash' by uni0280;	#r.sc|R.sc# R\ -> ʀ – uvular trill
+sub U' backslash' by udieresis;	# U\ -> ʊ̈ – near-close central rounded vowel ### ?
+sub X' backslash' by hbar;	# X\ -> ħ – voiceless pharyngeal fricative
+} XSAMPALettermark;
+
+lookup XSAMPAmarksymbolmark {
+# Non-letter symbols enclosed by single marks ‘_’ and ‘\’
+sub underscore' question' backslash' by glottalstopreversedsuperior ;	# _?\ -> ˤ – pharyngealized
+} XSAMPAmarksymbolmark;
+
+lookup XSAMPAlettermarks {
+# Lowercase letters with multiple marks ‘_<’ following them
+sub b' underscore' less' by bhook;	# b_< -> ɓ – voiced bilabial implosive
+sub d' underscore' less' by dhook;	# d_< -> ɗ – voiced alveolar implosive
+sub g' underscore' less' by ghook;	# g_< -> ɠ – voiced velar implosive
+# Lowercase letters with multiple marks ‘\`’ following them
+sub r' backslash' grave' by rhookturned;	# r\` -> ɻ – retroflex approximant
+} XSAMPAlettermarks;
+
+lookup XSAMPALettermarks {
+# Uppercase letters with a multiple marks ‘\_<’ following them
+sub G' backslash' underscore' less' by Gsmallhook;	# G\_< -> ʛ – voiced uvular implosive
+sub J' backslash' underscore' less' by dotlessjstrokehook;	# J\_< -> ʄ – voiced palatal implosive
+} XSAMPALettermarks;
+
+lookup XSAMPAsymbolmarks {
+# Non-letter symbols with marks ‘|\’ following them
+sub [bar verticalbar]' [bar verticalbar]' backslash' by clicklateral;	# ||\ -> ǁ – alveolar lateral click
+} XSAMPAsymbolmarks;
+
+lookup XSAMPAmarkLettermark {
+# Uppercase letters enclosed by single marks ‘<’ and ‘>’
+sub less' F' greater' by arrowdownright;	# <F> -> ↘ – global fall
+sub less' R' greater' by arrowupright;	# <R> -> ↗ – global rise
+} XSAMPAmarkLettermark;
+
+lookup XSAMPAmarkLettermarkLetter {
+# Uppercase letters each preceded by single mark ‘_’
+sub underscore' B' underscore' L' by uni1DC5;	# _B_L -> o᷅ – low rising tone
+sub underscore' H' underscore' T' by uni1DC4;	# _H_T -> o᷄ – high rising tone
+sub underscore' R' underscore' F' by uni1DC8;	# _R_F -> o᷈ – rising falling tone
+} XSAMPAmarkLettermarkLetter;
+
+lookup CXS {
+sub i' backslash' by istroke;	# i\ -> ɨ – close central unrounded vowel ## = one' in XSAMPA
+sub u' backslash' by ae;	# u\ -> æ – near-open front unrounded vowel ## = braceleft' in XSAMPA
+#sub ampersand     by ubar;	# & -> ʉ – close central rounded vowel ## = braceright' in XSAMPA
+#sub ampersand' backslash'   by uni0276;	#oe.sc|OE.sc# &\ -> ɶ – open front rounded vowel ## = ampersand' in XSAMPA
+# affricatives: t_s or ts) and k_p or kp) with t breveinverteddoublecmb s and k breveinverteddoublecmb p
+#sub semicolon     by jsuperior;	# ; -> ʲ – palatalized ## = underscore' j' = quotesingle' in XSAMPA
+
+# allows for stress either "sec'first or %sec"first or ,sec'first or ,sec"first
+# cannot be supported reliably, so only %sec"first and ,sec'first
+sub quotesingle   by verticallinemod;	# " -> ˈ – primary, lexical stress
+#sub comma         by verticallinelowmod;	# % -> ˌ – secondary stress
+} CXS;
+
+feature xsmp {
+# 4
+lookup XSAMPAmarkLettermarkLetter;
+# 3
+lookup XSAMPAmarkLettermark;
+lookup XSAMPAsymbolmarks;
+lookup XSAMPAlettermarks;
+lookup XSAMPALettermarks;
+lookup XSAMPAmarksymbolmark;
+# 2
+lookup XSAMPAsymbolmark;
+lookup XSAMPAlettermark;
+lookup XSAMPALettermark;
+lookup XSAMPAmarksymbol;
+lookup XSAMPAmarkLetter;
+lookup XSAMPAmarkletter;
+# 1
+lookup XSAMPAnoIPA;
+lookup XSAMPAsymbol;
+#lookup XSAMPAletter;
+lookup XSAMPALetter;
+} xsmp;

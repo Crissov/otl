@@ -1,0 +1,72 @@
+languagesystem DFLT dflt;
+languagesystem latn dflt;
+
+
+lookup italic {
+sub a by ascript;
+sub g by gscript; # gscript U+0261, cf. scriptg U+210A
+sub v by vhook;
+sub y by y.alt;
+sub h by h.alt; # = heng
+#sub w by ;
+sub e by eopen;
+sub germandbls by germandbls.alt;# beta
+sub f by florin;# should be upright
+sub u by upsilonlatin;
+sub w by omega;# mturned;#omega
+sub l by afii61289;#literSign;
+sub z by ezh;# tonetwo
+sub s by esh;
+sub p by wynn;#rho
+sub r by rfishhook;
+#sub x by chi;
+#sub t by tau;
+#sub o by sigma;
+#sub c by sigmafinal;#stigma
+#sub ij by ydieresis;
+# dtail, esh, ezh, iotalatin, oopen, vturned, zstroke
+# bhook, dhook, ghook, khook, phook, rfishhook, rhook, thook, tretroflexhook, yhook; nhookleft, 
+# dcurl, lcurl, ncurl, tcurl, ccurl, eshcurl, zcurl, ezhcurl, dzcurl, tccurl, vcurl
+} italic;
+feature ital {
+    lookup italic;
+} ital;
+
+lookup hook {
+# ɓ ɗ ɠ ɦ/ɧ ƙ ɭ ɱ ɲ/ɳ/ŋ ƥ ʠ ɾ ſ/ʃ/ʂ ʈ/ƫ/ƭ ʋ ʒ/ȥ/ʐ 
+#  ƈ0192ƒ 
+sub b by bhook;
+sub d by dhook;
+sub g by ghook;
+sub h by henghook;#uni0267
+sub k by khook;
+sub l by lhookretroflex;
+sub m by mhook;
+sub n by nhookretroflex;# eng nhookleft
+sub p by phook;
+sub r by rhook;
+#sub r by rfishhook;
+sub s by longs;#shook esh
+sub t by thook;
+#sub t by tretroflexhook;#tpalatalhook
+sub v by vhook;
+sub y by y.alt;#yhook;
+sub z by ezh;#zhook;#zretroflexhook
+} hook;
+
+lookup curl {
+# ɕ ȡ ʝ ȴ/ɬ ȵ ȶ ⱴ ɣ ʑ | ʆ ʓ ʥ ʨ
+sub c by ccurl;#uni0255
+sub d by uni0221;#dcurl;
+sub j by jcrossedtail;#uni029D
+sub l by uni0234;#lcurl; lbelt/uni026C
+sub n by uni0235;#ncurl;
+sub t by uni0236;#tcurl;
+sub v by uni2C74;#vcurl; # Ext-C
+sub y by gammalatinsmall;#uni0263
+sub z by zcurl;#uni0291
+# sub esh by eshcurl;uni0286
+# sub ezh by ezhcurl;uni0293
+# sub dz by dzcurl;uni02A5
+# sub tc by tccurl;uni02A8
+} curl;
