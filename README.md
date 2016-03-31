@@ -9,4 +9,20 @@ Using the code from a [Typohile thread](http://typophile.com/node/67366) there a
 
 `rmnz`: Romanize
 ----
-This non-standard feature shows characters from non-roman scripts (currently Greek and Cyrillic) with Latin glyphs, using respective ISO standards (which usually only cover contemporary letters).
+This non-standard feature shows characters from non-roman scripts with Latin glyphs, using respective ISO standards (which usually only cover contemporary letters).
+
+Implemented (but hardly tested):
+
+- `lookup CyrillicRomanization`: ISO 9:1995
+- `lookup GreekRomanization`: ISO 843:1997
+- `lookup HebrewRomanization`: ISO 259-1:1984, ISO 259-2:1994, ISO 259-3:1999
+- `lookup ArabicRomanization`: ISO 233-1:1984 (not DIN 31635:2011-07)
+- 
+Planned:
+
+- `lookup ArmenianRomanization`: ISO 9985
+- `lookup GeorgianRomanization`: ?
+- `lookup ThaiRomanization`: ISO 11940
+- `lookup DevanagariRomanization` (and other Indian scripts): ISO 15919
+- `lookup KanaRomanization` (Katakana, Hiragana): ISO 3602 (Strict) “Nihon-siki”
+- `lookup PinyinRomanization` (Chinese): ISO 7098
