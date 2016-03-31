@@ -17,7 +17,7 @@ Implemented (but hardly tested):
 - `lookup GreekRomanization`: ISO 843:1997
 - `lookup HebrewRomanization`: ISO 259-1:1984, ISO 259-2:1994, ISO 259-3:1999
 - `lookup ArabicRomanization`: ISO 233-1:1984 (not DIN 31635:2011-07)
-- 
+
 Planned:
 
 - `lookup ArmenianRomanization`: ISO 9985
