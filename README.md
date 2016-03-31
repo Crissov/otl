@@ -1,7 +1,7 @@
 OTL: OpenType Layout features
 ====
 
-The `.fea` files contained in this repository follow [standard Adobe feature file syntax](https://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html) and names from the [Adobe glyph list for new fonts (AGLFN)](https://sourceforge.net/adobe/aglfn/wiki/Home/). They should be usable in most current font editors, but authors may need to adjust feature and glyph names to suit their design.
+The `.fea` files contained in this repository follow [standard Adobe feature file syntax](https://www.adobe.com/devnet/opentype/afdko/topic_feature_file_syntax.html) and names from the [Adobe glyph list for new fonts (AGLFN)](https://github.com/adobe-type-tools/agl-aglfn/). They should be usable in most current font editors, but authors may need to adjust feature and glyph names to suit their design.
 
 `rnum`: Roman numerals
 ----
