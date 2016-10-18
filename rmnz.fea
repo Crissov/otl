@@ -2,10 +2,14 @@ languagesystem DFLT dflt;
 languagesystem latn dflt;
 
 feature rmnz { # change to ss01 through ss20 when actually using
-
 featureNames {
 	name "‘rmnz’ Romanization: transliteration by ISO rules";# Feature description for MS Platform, script Unicode, language English
 }
+    lookup CyrillicRomanization;
+    lookup GreekRomanization;
+    lookup HebrewRomanization;
+    lookup ArabicRomanization;
+} rmnz;
 
 lookup CyrillicRomanization {
 #script cyrl;
@@ -435,5 +439,3 @@ lookup ArabicRomanization {
 	sub [uni0669 afii57401 ninearabic ] by nine;#  (٩)‎ -> 9
 # DIN 31635:2011-07
 } ArabicRomanization;
-
-} rmnz;
