@@ -1,0 +1,9 @@
+# demj = demoji: Replace Unicode emoji characters by ASCII art
+
+languagesystem DFLT dflt;
+languagesystem latn dflt;
+
+lookup demojify {
+  # only a single example yet, lots to do
+  sub uni1f600 by colon hyphen closeparen; # :-) 😀 Grinning Face
+}
