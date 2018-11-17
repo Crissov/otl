@@ -1,0 +1,23 @@
+# nl: fijn !ﬁjn ~ fÿn  # ee aa uu oo oe ui ei ij 
+# u-like round ÿ with dots over stems, not like diaeresis, maybe with j descender rather than g
+# uppercase round like lowercase, may be not ligated
+# en: hijack, marijuana, Fiji / fijian
+
+# http://typophile.com/node/34111?page=2
+# Miguel Sousa 
+languagesystem latn dflt;
+	languagesystem latn NLD;
+
+feature locl {
+	script latn;
+		language NLD exclude_dflt;
+			sub f i' j by i.dot;
+			# or1: sub f i' j' by ij;# i_j
+			# or2: sub f i j' by DUTCH_j;
+} locl;
+
+feature liga {
+	# with or2: ignore sub f i DUTCH_j;
+	sub f f i by f_f_i;
+	sub f i by f_i;
+} liga;

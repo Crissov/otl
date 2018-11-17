@@ -1,0 +1,295 @@
+## Primus 2004/2006 / Fuhrhop/Buchmann 2009
+##
+## improve visibility of graphematic syllable
+## related to ‘init’, ‘medi’ and ‘fina’ – could be merged later
+feature sllb {
+    @shortV = [a e i o u];
+    @longV  = [y];
+	@shortC = [c m n r s v w x z];
+	@lowerC = [g j p q]; # cursive <f:ƒ>, possibly <h> and <z:ʒ> (ezh) and <x>, insular <f> and <r>, esh <ʃ>, thorn, eth
+	@upperC = [b d f h k l t]; # dot in <j> doesn’t count, thorn, esh <ʃ>
+	@longC  = [@lowerC @upperC];
+	@varblC = [s z r]; # long <s:ſ> or esh <ʃ>, tailed <z:ʒ> (ezh), insular <r>
+# insular: g:ᵹ, d:ꝺ, f:ꝼ, r:ꞃ, s:ꞅ, t:ꞇ
+# uncial:  
+	lookup l {
+	## the lowercase letter <l> may only have upper length
+	## if isolated (possibly duplicated) in start/end edge or bridge,
+	## e.g. in <loo>, <el> and <hello>.
+	## Elsewhere it should be shortened (i.e. small-caps variant l.sc or turnedr),
+	## especially if preceded by @shortC in onset, e.g. <clou>,
+	## or if succeeded by @shortC in coda, e.g. <olm>.
+		
+	} l;
+
+	lookup h {
+	## the lowercase letter <h> may only have upper length
+	## if isolated (possibly in digraph <ch>) in start/end edge or bridge,
+	## e.g. in <ha>, <oh>, <uhu> and <heh>.
+	## Elsewhere it should be shortened (i.e. small-caps variant h.sc),
+	## especially if preceded by @shortC in onset, e.g. <rho>,         – syllable-initial
+	## or if succeeded by @shortC in coda, e.g. <ohm>.                 – elongating
+		sub [c r t p g] h' by h.sc; # digraphs, partially only in Greek loanwords with rho, phi, theta, or <gh> in Italian, <nh> in Portuguese
+	} h;
+
+	lookup fricative {
+	## Fricative letters should have length, but <s, w, v> do not,
+	## whereas <f, h> and <j> and <ß> do.
+	} fricative;
+
+	lookup sesh {
+	## the lowercase letter <s> should use a long form <ʃ>
+	## when followed by @longC before @vowel
+	## at the start of a word (or syllable)
+		ignore sub @letter s [p t];# so the following only match at start of word
+		sub s' [p t]   @vowel by esh;
+		sub s' [p t] r @vowel by esh;
+		sub s'  p    l @vowel by esh;
+	} sesh;
+	lookup send {
+	## the lowercase letter <s> should use a round form <ɔ>
+	## when at the end of a word, cf. long-s <ſ> 
+		ignore sub @letter s' @letter; # affect only word endings
+		ignore sub @letter s' s';
+		sub @letter s' by s.round;
+	} send;
+	
+	lookup tezh {
+	## the lowercase letter <z> should have lower length
+	## when preceded by @longC and succeeded by nothing.
+	## Most relevant: <tz> in German: <tʒ>
+		ignore sub @longC z' @letter; # affect only word endings
+		sub t' z' by tezh; # ligature
+		sub @longC z' by ezh;
+	} tezh;
+	
+	lookup c {
+	## ch
+		# Kuchen, Küche+n, koch+en
+		# Mär+chen, (Eich-)Hörnchen
+		# <…chen#>, <…chens#>
+		# <…schen#>
+		# <…sschen#>
+		# <…nschen#>
+		# <…tschen#>
+		# <…Vschen#>
+		# <…VVschen#>
+		# <…chchen#>
+		# <…schchen#>
+		# Mäus+chen, Häus+chen
+		# täuschen, klitschen, mischen, dreschen, zwischen, tischen, wischen, waschen, klatschen
+		# Fässchen, Fläschchen, ?Bächchen
+		# <>(’)sch(|e|en|es|er|em) (nach Eigennamen)
+		# vgl. -chen, -lein (poetisch), -li/-le/-el/-i (regional)
+		###sub @vowel s' c h e n by s.final;
+		sub c' h' e' n' by chen; # c_h_e_n
+		sub c' h' by c_h; # c_h
+	## sch
+	## ck
+	## cc  – italisms
+	## cch – italisms
+	## ci  – italisms
+	## cV
+	## cC: cl, cr (cv, cw, cn)
+	## k = |c, q = c|
+	} c;
+	
+	lookup geminate {
+	## which (consonant) letters may appear doubled 
+	## 1. at word end – several
+		ignore sub @vowel @consonant' @consonant' @letter;
+		sub @vowel f' f' by ff.final;# e.g. ‘(Off), Kaff’, cf. p' f'
+		sub @vowel l' l' by ll.final;# e.g. ‘All, Fell’
+		sub @vowel m' m' by mm.final;# e.g. ‘Kamm, fromm’
+		sub @vowel n' n' by nn.final;# e.g. ‘Zinn, kann’
+		sub @vowel p' p' by pp.final;# e.g. ‘Krepp, (Kopp, Stopp)’
+		sub @vowel r' r' by rr.final;# e.g. ‘Herr’
+		sub @vowel s' s' by ss.final;# e.g. ‘(Ass), Hass’
+		sub @vowel t' t' by tt.final;# e.g. ‘Watt, Mett’
+		## not in German
+		sub @vowel b' b' by bb.final;# e.g. 
+		sub @vowel d' d' by dd.final;# e.g. 
+		sub @vowel g' g' by gg.final;# rare, e.g. ‘Egge’ (vs. ‘Ecke’)
+		sub @vowel k' k' by kk.final;# e.g. …, cf. c' k'
+		sub @vowel z' z' by zz.final;# e.g. ‘buzz, fuzz’, cf. t' z'
+	## 2. between nuclei (vowels) – most
+		sub @vowel b' b' @vowel by bb.medial;# e.g. ‘knabbern’
+		sub @vowel d' d' @vowel by dd.medial;# e.g. ‘Kladde’
+		sub @vowel f' f' @vowel by ff.medial;# e.g. ‘Affe, hoffen, offen’
+		sub @vowel l' l' @vowel by ll.medial;# e.g. ‘Elle, allein’
+		sub @vowel m' m' @vowel by mm.medial;# e.g. ‘Hammer, Amme’
+		sub @vowel n' n' @vowel by nn.medial;# e.g. ‘Kanne’
+		sub @vowel p' p' @vowel by pp.medial;# e.g. ‘Kappe’
+		sub @vowel r' r' @vowel by rr.medial;# e.g. ‘Karre’
+		sub @vowel s' s' @vowel by ss.medial;# e.g. ‘Kasse’
+		sub @vowel t' t' @vowel by tt.medial;# e.g. ‘Latte’
+		## not in German
+		sub @vowel g' g' @vowel by gg.medial;# e.g. ‘Muggel’, cf. c' k'
+		sub @vowel k' k' @vowel by kk.medial;# e.g. ‘’, cf. c' k'
+		sub @vowel z' z' @vowel by zz.medial;# e.g. ‘Pizza’, cf. t' z'
+	## 3. at wort start – none
+	}
+	
+## Extensions for English – and anglicisms in German
+	
+	lookup semivowel {
+	## the lowercase letter <y> should be
+	## <u>-like when used as a singular vowel
+	## <j>-like (with left-reaching tail) when used as right side of a diphthong
+	## <v>-like when used as a consonant (default shape)
+	## In English, vocalic <y> is a positional variant of <i> that appears in diphthongs and in word-final position. 
+	## There are few special cases, like <eye>.
+		ignore sub @vowel y' @vowel;# <Maya> vs. <eye> vs. <buyer>
+		sub [a o e u] y' by y.lefttail;# diphthong
+		sub @consonant y' @consonant by y.round;# vowel, esp. in Greek loanwords
+		ignore sub @consonant y' @letter;
+		sub @consonant y' by y.round;# end of word
+	## the lowercase letter <w> should be
+	## <uu>-like when used (as a singular vowel or) as right side of a diphthong
+	## <vv>-like when used as a consonant (default shape)
+		ignore sub @vowel w' @vowel;# <Hawaii> vs. <awe>
+		sub [a o e] w' by w.round;# diphthong
+	} semivowel;
+
+} sllb;
+
+feature grmm {
+	lookup stsuffix {
+	# In German, ‘st’ is a postfixed morph for several flexemes:
+	#
+	# Verbs take {-st} in the second person singular ‘du’ in all temps, 
+	# i.e. simple present “Präsens” and simple past “Präteritum” (incl. conjunctive),
+	# e.g. regular ‘warten: wartest, wartetest’,
+	# irregular ‘gehen: gehst (gehest), gingst (gingest)’. 
+	# Verbal stems always end in a consonant letter, 
+	# except for auxiliary verbs ‘haben, sein’:
+	# ‘hast, hattest’, ‘bist, warst’, ## and ‘ist’
+	# but not copula verb ‘bleiben’ ## ‘aussehen’, ‘wirken’, ‘scheinen’, ‘erscheinen’, ‘dünken’, ‘heißen’
+	# or modal verbs ‘werden, müssen, sollen, dürfen, können, mögen, wollen’:
+	# ‘bleibst, bliebst’, ‘wirst, wurdest’, ‘musst, musstest’, ‘sollst, solltest’,
+	# ‘darfst, durftest’, ‘kannst, konntest’, ‘magst, mochtest’, ‘willst, wolltest’.
+	# The graphemic allomorph {-t} is used if the stem ends in one of ‘s, ß, x, z’:
+	# e.g. ‘weisen: weist (weisest), wiest (wiesest)’, 
+	# ‘wissen: weißt (wissest), wusstest (wüsstest)’,
+	# ‘wachsen: wächst (wachsest), wuchst (wüchsest)’,
+	# ‘bolzen: bolzt (bolzest), bolztest’,
+	# ‘hexen: hext (hexest), hextest’.
+	# Increasingly, this is also applied to ‘sch’ stem ends:
+	# ‘waschen: wäschst/wäscht (waschest), wuschst/wuscht (wüschest)’.
+	# There is no minimal pair for verbs ending in {-ss+en/-s+en},
+	# but ‘reißen / reisen’ and ‘lesen, lasen / lassen, ließen’.
+	# Within several restrictions, the conjunctive forms add an ‘e’
+	# before the final suffix (or they umlaut the vowel), 
+	# see parenthetic forms in examples above.
+	# The conjunctive mood is rarely used, however, and even rarer it is used “correctly”.
+	# Since {-t} is also a common verbal suffix, 
+	# e.g. present tense 3rd person singular ‘er/sie/es’, 2nd person plural ‘ihr’
+	# and imperative plural,
+	# <-st> will appear in verbs whose stem ends with <s>, 
+	# e.g. ‘rasen: [er/sie/es] rast, raste; [ihr] rast, rastet; rast!’ (cf. ‘rasten’).
+	#
+	# Adjectives take {-st} in the superlative,
+	# e.g. regular ‘weit, weiter, weitest’ 
+	# and ‘schnell, schneller, schnellst’, 
+	# semi-regular ‘hoch, höher, höchst’
+	# and irregular ‘gut, besser, best’, 
+	# but it is usually followed by nominal declension.
+	#
+		# -VCst, -VCCst
+		ignore sub s' t @letter; # only affect word endings
+		sub @vowel @consonant s' t by longs; # e.g. <Obst>, <gehst>, <hörst>; but <Obstsalat>
+		sub @vowel @consonant @consonant s' t by longs; # (s.long) e.g. <Herbst>, <gingst>, <hältst>; but <herbstlich>
+		# -as, -es, -is, -os, -us
+		ignore sub @vowel s' @letter; # only affect word endings
+		sub @vowel s' by rounds; # (s.round)
+	} stsuffix;
+	
+	lookup plural {
+	# German has several morphs to indicate nominal plural, including umlaut and null.
+	# standard forms
+	# ………
+	# ‘Wort, Worte/Wörter’, ‘Mann, Männer/Mannen’.
+	# Some loanwords, e.g. from Latin or Greek, keep their foreign plural morphs,
+	# e.g. ‘Atlas, Atlanten’, ‘Globus, Globen/Globusse’, ‘Kaktus/Kaktee, Kakteen’, ‘Virus, Viren’,
+	# ‘Kasus, Kasūs’, ‘Bonus, Boni/Bonusse’, ‘Alias, Alias/Aliase/Aliasse’, ‘Tempus, Tempora’, 
+	# ‘Labor, Labore/Labors’, ‘Motor, Motore/Motoren’, ‘Agenda, Agenden’ (‘Dogma’, ‘Drama’),
+	# ‘Neutrum, Neutra’, ‘Visum, Visa/Visen’, ‘Cello, Celli/Cellos/*Cellis’, ‘Topos, Topoi’.
+	} plural;
+	
+	lookup particle {
+	# short words that are not inflected may have a word ligature
+	#	ignore sub @letter  @letter;
+	#	sub  by ;
+		ignore sub @letter i' n'  @letter;
+		sub  by ;
+		ignore sub @letter a' n' @letter;
+		sub  by ;
+		ignore sub @letter a' m' @letter;
+		sub  by ;
+		ignore sub @letter a' b' @letter;
+		sub  by ;
+		ignore sub @letter v' o' r' @letter;
+		sub  by ;
+		ignore sub @letter f' udieresis' r' @letter;
+		sub  by ;
+		ignore sub @letter v' o' n' @letter;
+		sub  by ;
+		ignore sub @letter u' m' @letter;
+		sub  by ;
+		ignore sub @letter a' n' s' @letter;
+		sub  by ;
+		ignore sub @letter f' udieresis' r' s' @letter;
+		sub  by ;
+		ignore sub @letter u' n' d' @letter;
+		sub  by ;
+		ignore sub @letter o' b' @letter;
+		sub  by ;
+		ignore sub @letter o' d' e' r' @letter;
+		sub  by ;
+		ignore sub @letter a' b' e' r' @letter;
+		sub  by ;
+		ignore sub @letter j' e' @letter;
+		sub  by ;
+		ignore sub @letter j' a' @letter;
+		sub  by ;
+		ignore sub @letter d' o' c' h' @letter;
+		sub  by ;
+		ignore sub @letter w' o' h' l' @letter;
+		sub  by ;
+		ignore sub @letter w' e' n' n' @letter;
+		sub  by ;
+		ignore sub @letter w' a' n' n'  @letter;
+		sub  by ;
+		ignore sub @letter w' o'  @letter;
+		sub  by ;
+		ignore sub @letter w' e' r'  @letter;
+		sub  by ;
+		ignore sub @letter w' a' s' @letter;
+		sub  by ;
+		ignore sub @letter w' i' e'  @letter;
+		sub  by ;
+		ignore sub @letter d' e' r' @letter;
+		sub  by ;
+		ignore sub @letter d' i' e' @letter;
+		sub  by ;
+		ignore sub @letter d' a' s' @letter;
+		sub  by ;
+		ignore sub @letter d' a' s' s' @letter;
+		sub  by ;
+		ignore sub @letter d' e' m' @letter;
+		sub  by ;
+		ignore sub @letter d' e' n' @letter;
+		sub  by ;
+		ignore sub @letter d' e' s' @letter;
+		sub  by ;
+		ignore sub @letter  @letter;
+		sub  by ;
+		ignore sub @letter  @letter;
+		sub  by ;
+		ignore sub @letter  @letter;
+		sub  by ;
+		ignore sub @letter  @letter;
+		sub  by ;
+	} particle;
+	
+} grmm;

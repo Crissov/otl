@@ -1,0 +1,7 @@
+feature uris {
+#	email addresses
+	sub @letter' at by @monospaced;
+	sub at @letter' by @monospaced;
+	sub @letter' @monospaced by @monospaced;
+	sub @monospaced @letter' by @monospaced;
+}

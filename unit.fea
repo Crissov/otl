@@ -1,0 +1,58 @@
+feature unit { # correct spacing and upright forms for (SI) units
+	prefix = [];
+	unit = [];
+#	simple units	
+	sub digit space' prefix unit space by figurespace;	
+	sub digit space' unit space by figurespace;	
+	sub figurespace prefix' unit' by unitsymbol;	
+#	complex units, cf. ‘frac'
+	# exponents
+	# fractions
+
+#	currencies
+}
+
+@SIPREFIX = [Y Z E P T G M K k H h D d m micro mu n p f a z y]; # without da for deka
+lookup litre {
+  sub @DIGIT                  l' @SPACE by litre;
+  sub @DIGIT @SPACE           l' @SPACE by litre;
+  sub @DIGIT        @SIPREFIX l' @SPACE by litre;
+  sub @DIGIT @SPACE @SIPREFIX l' @SPACE by litre;
+  sub @DIGIT        d [a k]   l' @SPACE by litre;
+  sub @DIGIT @SPACE d [a k]   l' @SPACE by litre;
+} litre;
+# Yi Zi Ei Pi Ti Gi Mi Ki B bit byte
+@prefix_letters = [Y Z E P T G M K k H h D dk da d m micro mu n p f a z y];
+@siprefix = [Y.prfx Z.prfx E.prfx P.prfx T.prfx G.prfx M.prfx k.prfx k.prfx h.prfx h.prfx da.prfx da.prfx da.prfx d.prfx m.prfx micro.prfx micro.prfx n.prfx p.prfx f.prfx a.prfx z.prfx y.prfx];
+@SIPRESYM = [yotta zetta exa peta tera giga mega kilo kilo hecto hecto deca deci centi milli micro micro nano pico femto atto zepto yocto];
+@siunit = [m g s A K N J W C V F Omega S T H l L a];
+@sisymbol = [metre gram second ampere kelvin newton joule watt coulomb volt frarad ohm siemens tesla henry litre litre are];
+@siunitlong = [mol cd rad sr Hz Pa Wb lm lx Bq Gy Sv kat degree_C];
+@sisymbollong = [mole candela radiant steradiant hertz pascal weber lumen lux becquerel gray sievert katal celsius];
+# bar min h d degree minute second t
+# Np B
+# eV u Da ua
+# c_0 hbar m_e a_0 E_h
+# Aring a b atm Ba mmHg Torr
+# erg dyn P St sb ph Gal Mx G Gs Oe
+lookup unit {
+	sub @digit @prefix_letters' [m g s A K N J W C V F Omega S T H l L a] by @siprefix; # 1 letter following
+	sub @digit @prefix_letters' [] by @siprefix; # 2 letters following
+	sub @digit @prefix_letters' [] by @siprefix; # 3 letters following
+# deca needs special treatment
+	sub @digit @space @prefix_letters' by @siprefix;
+	sub @siprefix m' o' l' by mol.unit;
+	sub @siprefix c' d' by cd.unit;
+	sub @siprefix r' a' d' by rad.unit;
+	sub @siprefix s' r' by sr.unit;
+	sub @siprefix H' z' by Hz.unit;
+	sub @siprefix P' a' by Pa.unit;
+	sub @siprefix W' b' by Wb.unit;
+	sub @siprefix degree' C' by celsius.unit;
+	sub @siprefix l' m' by lm.unit;
+	sub @siprefix l' x' by lx.unit;
+	sub @siprefix B' q' by Bq.unit;
+	sub @siprefix G' y' by Gy.unit;
+	sub @siprefix S' v' by Sv.unit;
+	sub @siprefix k' a' t' by kat.unit;
+} unit;

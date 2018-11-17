@@ -1,0 +1,85 @@
+languagesystem DFLT dflt;
+languagesystem latn dflt;
+
+@lowercase = [a b c d e f g h i j k l m n o p q r s t u v w x y z];# äöüßé
+@uppercase = [A B C D E F G H I J K L M N O P Q R S T U V W X Y Z];
+@smallcaps = [A.sc B.sc C.sc D.sc E.sc F.sc G.sc H.sc I.sc J.sc K.sc L.sc M.sc N.sc O.sc P.sc Q.sc R.sc S.sc T.sc U.sc V.sc W.sc X.sc Y.sc Z.sc];
+@letters
+
+lookup i2sc { # inner majuscules to small caps
+#	examples: eBay, iPhone, iMac, McDonald, mySpace, FaceBook
+	sub @lowercase @uppercase' by @smallcaps;
+#	sub @lowercase @uppercase' @lowercase by @smallcaps; # fails to match ‘eineR' and ‘einE'
+
+#	variant: words with initial and medial majuscule
+	
+#	special case name prefixes:
+#	Mac, Mc, Van, Von, De, Di, Ter, El, Al, La, Le, (L', D', O', Zu, VonDer, VanDer)
+# Mac, Mc, Mc, M’c, Mic; Mag vor V; weibl. Mhic/Mhig bzw. Nic/Nig
+# fitz
+# Ó/O’ nicht of, Pl Uí, weibl. Ní
+# De, Di
+# Ibn, Ben, Bin; Al-, El-
+
+#	variant: words with initial minuscule (vowel) before majuscule,
+#	e.g. iPhone, eBook -> [I]phone, [E]book
+	sub @lowercase' @uppercase by @smallcaps;
+	sub @lowercase @smallcaps' @uppercase by @lowercase; # undo 
+	sub @smallcaps @uppercase' by @lowercase;
+} i2sc;
+
+lookup s2sc { # suffix to small caps
+#	variant 1: majuscule marker
+#	LehrerInnen -> Lehrer[INNEN]
+	sub @lowercase @uppercase' @lowercase by @smallcaps; # same as i2sc
+	sub @lowercase @smallcaps @lowercase' by @smallcaps;
+	sub @smallcaps @smallcaps @lowercase' by @smallcaps;
+#	variant 2: apostrophe marker
+#	Einstein'sche -> Einstein[SCHE]
+	sub @lowercase apostrophe @lowercase' by @smallcaps;
+	sub apostrophe @smallcaps @lowercase' by @smallcaps;
+	sub @smallcaps @smallcaps @lowercase' by @smallcaps;
+#	sub @smallcaps @lowercase' by @smallcaps; # simpler, too simple?
+	sub @lowercase apostrophe' @smallcaps by ;
+} s2sc;
+
+lookup p2sc { # prefix to small caps
+#	Ohm'sches -> O[HM]sches Gesetz
+	sub @lowercase' apostrophe @lowercase by @smallcaps;
+	sub @lowercase' @smallcaps apostrophe by @smallcaps;
+	sub @lowercase' @smallcaps @smallcaps by @smallcaps;
+#	sub @lowercase' @smallcaps by @smallcaps; # simpler, too simple?
+#	sub @uppercase' @smallcaps by @smallcaps; # [OHM]sches
+	sub @smallcaps apostrophe' @lowercase by ;
+} p2sc;
+
+lookup sche {
+	sub @apostrophe' s' c' h' e' by sche;
+	sub sche' r' by scher;
+	sub sche' s' by sches;
+	sub sche' n' by schen;
+	sub sche' m' by schem;
+	@sche = [sche scher sches schen schem];
+	sub @lowercase' @sche by @smallcaps;
+	sub @lowercase' @smallcaps @sche by @smallcaps;
+	sub @uppercase' @smallcaps @sche by @smallcaps;
+	# sub s' c' h' e' by sche;
+} sche;
+
+@gendergap = {dash asterisk slash};
+lookup movem {
+	sub @lowercase I' n' n' e' n' by Innen; # @smallcaps
+	sub @lowercase I' n' by In; # @smallcaps: i.sc n.sc
+	sub @lowercase e' R' by eR; # r.sc
+	sub @lowercase @gendergap' i' n' n' e' n' by Innen; # @smallcaps
+	sub @lowercase @gendergap' i' n' by In; # @smallcaps: i.sc n.sc
+	sub @lowercase @openparen' i' n' n' e' n' @closeparen' by Innen; # @smallcaps
+	sub @lowercase @openparen' i' n' @closeparen' by In; # @smallcaps: i.sc n.sc
+	sub u' n' d' @dash' i' n' n' e' n' by Innen; # Innen.word und.word
+	sub o' d' e' r' @dash' i' n' by In; # In.word oder.word
+	# etc.
+	# die/der, der/die; der/dem, dem/der; die/den, den/die; des/der, der/des
+	# eine/ein, ein/eine, einE; einem/einer, einer/einem; einen/einer, einer/einen; eines/einer, einer/eines
+	sub @openparen m slash w @closeparen by mw.symbol;
+	sub @openparen w slash m @closeparen by wm.symbol;
+} movem;

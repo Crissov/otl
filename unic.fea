@@ -1,0 +1,25 @@
+# Unicase 
+
+languagesystem DFLT dflt;
+languagesystem latn dflt;
+
+feature unic {
+	sub [b d f g h j k l p q t y] by [afii10094 uni0254 afii10068 uni0262 uni029C dotlessj kgreenlandic uni029F uni03F1 q.sc afii10084 uni028F]; 
+	# petite caps in Biolinum: B, G, H, K (not uni1D0B), L, Y;
+	# q.sc only in MUFI-PUA: uniEF0C;
+	# d.insular/rotunda = uniA77A;
+	# f.insular = A77C
+	# dotlessj < j ---- uni1D0A
+	# sigma ~ softsigncyrillic = afii10094 < b ---- uni0299
+	# tau ~ tecyrillic = afii10084 < t ---- uni1D1B or uniA787
+	# partialdiff ~ oopen = uni0254 < d ---- uni1D05
+	# ercyrillic = afii10082 < p ---- uni1D18
+	# gecyrillic = afii10068 < f ---- uniA730
+	sub [i] by [dotlessi];
+#   * # *   * * * * * * *     # * *   # * # # # # * #    # Kapitälchen = Gemeine   * Ober-/Unterlänge
+# a b c d e f g h i j k l m n o p q r s t u v w x y z
+#   B   D   F G H ı J K L       P Q     T         Y
+# ᴀ ʙ ᴄ ᴅ ᴇ ꜰ ɢ ʜ ɪ ᴊ ᴋ ʟ ᴍ ɴ ᴏ ᴘ   ʀ ꜱ ᴛ ᴜ ᴠ ᴡ   ʏ ᴢ
+#
+# b, d, q, p als Kreis mit rechtem Winkel oder mit angelegter Hasta -> .sigma oder .cut
+} unic;
